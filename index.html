@@ -2,3081 +2,2768 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Singadoore Airlines</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Singadoore Airlines ✈️</title>
 
 <style>
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
+:root{
+  --yellow:#ffd400;
+  --yellow2:#ffea70;
+  --black:#090909;
+  --dark:#151515;
+  --gray:#222;
+  --light:#f7f7f7;
+  --white:#fff;
+  --green:#27c46b;
+  --red:#ff5757;
 }
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
 
 body{
-font-family:Arial,Helvetica,sans-serif;
-background:#f4f4f4;
-color:#111;
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--light);
+  color:#111;
 }
 
-html{
-scroll-behavior:smooth;
+button,input,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.topbar{
+  background:var(--black);
+  color:white;
+  text-align:center;
+  padding:8px;
+  font-size:13px;
 }
 
 header{
-background:#111;
-color:#ffd900;
-position:sticky;
-top:0;
-z-index:999;
-box-shadow:0 3px 15px #0005;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#090909;
+  color:white;
+  border-bottom:3px solid var(--yellow);
 }
 
 .nav{
-max-width:1400px;
-margin:auto;
-padding:15px 20px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
+  max-width:1250px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 20px;
+  gap:20px;
 }
 
 .logo{
-font-size:25px;
-font-weight:900;
+  font-size:23px;
+  font-weight:900;
+  color:var(--yellow);
+  white-space:nowrap;
 }
 
 .logo span{
-color:white;
+  color:white;
 }
 
-nav{
-display:flex;
-flex-wrap:wrap;
-gap:7px;
+.navlinks{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-padding:9px 12px;
-border-radius:8px;
-font-weight:bold;
+.navlinks button{
+  border:0;
+  background:transparent;
+  color:white;
+  padding:9px 12px;
+  border-radius:8px;
 }
 
-nav a:hover{
-background:#ffd900;
-color:#111;
+.navlinks button:hover{
+  background:#292929;
+  color:var(--yellow);
 }
 
-.notice{
-background:#ffd900;
-padding:9px;
-text-align:center;
-font-weight:bold;
-}
-
-section{
-max-width:1400px;
-margin:auto;
-padding:50px 20px;
+.member-btn{
+  background:var(--yellow)!important;
+  color:#000!important;
+  font-weight:800;
 }
 
 .hero{
-min-height:470px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-background:
-linear-gradient(#000b,#000b),
-radial-gradient(circle,#555,#111);
+  min-height:570px;
+  padding:70px 20px 80px;
+  background:
+    linear-gradient(120deg,rgba(0,0,0,.92),rgba(0,0,0,.68)),
+    radial-gradient(circle at 80% 30%,#ffdc19 0,transparent 25%),
+    #111;
+  color:white;
+}
+
+.hero-inner{
+  max-width:1250px;
+  margin:auto;
+}
+
+.badge{
+  display:inline-block;
+  background:var(--yellow);
+  color:#000;
+  padding:8px 13px;
+  border-radius:99px;
+  font-weight:900;
+  font-size:13px;
 }
 
 .hero h1{
-font-size:clamp(45px,8vw,90px);
-color:#ffd900;
-text-shadow:4px 4px #000;
+  font-size:clamp(42px,7vw,78px);
+  margin:20px 0 12px;
+  line-height:.95;
 }
 
-.hero h2{
-margin:15px 0;
+.hero h1 span{
+  color:var(--yellow);
 }
 
 .hero p{
-max-width:700px;
-line-height:1.6;
-font-size:18px;
-}
-
-.btn{
-border:none;
-background:#ffd900;
-color:#111;
-font-weight:900;
-padding:13px 20px;
-border-radius:10px;
-cursor:pointer;
-margin-top:15px;
-font-size:15px;
-}
-
-.btn:hover{
-transform:translateY(-2px);
-box-shadow:0 5px 15px #0004;
-}
-
-.dark-btn{
-background:#111;
-color:#ffd900;
-}
-
-.section-title{
-text-align:center;
-font-size:35px;
-margin-bottom:10px;
-}
-
-.section-sub{
-text-align:center;
-color:#666;
-margin-bottom:30px;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:16px;
-box-shadow:0 5px 20px #0002;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
-}
-
-input,select{
-width:100%;
-padding:13px;
-border:2px solid #ddd;
-border-radius:9px;
-font-size:16px;
-}
-
-label{
-font-weight:bold;
-display:block;
-margin-bottom:7px;
-}
-
-.form-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:18px;
+  font-size:19px;
+  max-width:650px;
+  color:#ddd;
 }
 
 .booking-box{
-background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 5px 20px #0002;
+  background:white;
+  color:#111;
+  margin-top:35px;
+  padding:22px;
+  border-radius:20px;
+  box-shadow:0 15px 50px rgba(0,0,0,.35);
 }
 
-.people-box{
-margin-top:25px;
-padding:20px;
-background:#fff8c7;
-border-radius:15px;
+.tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:18px;
+  flex-wrap:wrap;
 }
 
-.people-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:15px;
-margin-top:15px;
+.tab{
+  padding:10px 16px;
+  border:1px solid #ddd;
+  background:white;
+  border-radius:99px;
 }
 
-.people-grid input{
-font-size:20px;
-font-weight:bold;
-text-align:center;
+.tab.active{
+  background:#111;
+  color:white;
 }
 
-.total{
-margin-top:20px;
-padding:20px;
-background:#111;
-color:white;
-border-radius:12px;
-font-size:25px;
-font-weight:bold;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
 }
 
-.airport-search{
-background:#111;
-color:white;
-padding:30px;
-border-radius:20px;
+.field label{
+  display:block;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:6px;
+  color:#555;
+}
+
+.field input,
+.field select{
+  width:100%;
+  padding:13px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  background:white;
+}
+
+.search-btn{
+  width:100%;
+  border:0;
+  padding:14px;
+  border-radius:10px;
+  background:var(--yellow);
+  font-weight:900;
+}
+
+.options{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-top:15px;
+  font-size:14px;
+}
+
+section{
+  max-width:1250px;
+  margin:auto;
+  padding:65px 20px;
+}
+
+.dark-section{
+  max-width:none;
+  background:#101010;
+  color:white;
+}
+
+.dark-inner{
+  max-width:1250px;
+  margin:auto;
+}
+
+.section-title{
+  font-size:38px;
+  margin:0 0 10px;
+}
+
+.section-sub{
+  color:#666;
+  margin-bottom:28px;
+}
+
+.dark-section .section-sub{
+  color:#bbb;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.card{
+  background:white;
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.dark-section .card{
+  background:#1b1b1b;
+  color:white;
+}
+
+.offer{
+  min-height:220px;
+  position:relative;
+  overflow:hidden;
+}
+
+.offer::after{
+  content:"✈";
+  position:absolute;
+  right:-10px;
+  bottom:-35px;
+  font-size:120px;
+  opacity:.08;
+}
+
+.offer h3{
+  margin-top:0;
+}
+
+.offer-price{
+  font-size:29px;
+  font-weight:900;
+  color:#111;
+}
+
+.dark-section .offer-price{
+  color:var(--yellow);
+}
+
+.yellow-card{
+  background:var(--yellow)!important;
+  color:#000!important;
+}
+
+.cta{
+  display:inline-block;
+  border:0;
+  border-radius:10px;
+  padding:11px 16px;
+  background:#111;
+  color:white;
+  font-weight:800;
+  margin-top:10px;
+}
+
+.yellow-card .cta{
+  background:#000;
+}
+
+.airport-box{
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 5px 25px rgba(0,0,0,.07);
 }
 
 .airport-results{
-margin-top:20px;
-max-height:450px;
-overflow:auto;
-display:grid;
-gap:10px;
+  max-height:360px;
+  overflow:auto;
+  margin-top:15px;
 }
 
-.airport{
-background:white;
-color:#111;
-padding:15px;
-border-radius:10px;
-cursor:pointer;
-border-left:6px solid #ffd900;
+.airport-item{
+  padding:12px;
+  border-bottom:1px solid #eee;
+  cursor:pointer;
 }
 
-.airport:hover{
-background:#fff8c9;
+.airport-item:hover{
+  background:#fff9c7;
 }
 
-.airport small{
-display:block;
-margin-top:5px;
-color:#555;
+.flex-area{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
 }
 
-.ticket-page{
-display:none;
-min-height:100vh;
-background:#e9e9e9;
-padding:35px 15px;
+.calendar{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:7px;
+  margin-top:15px;
+}
+
+.day{
+  border:1px solid #ddd;
+  padding:12px 5px;
+  border-radius:10px;
+  text-align:center;
+  background:white;
+}
+
+.day small{
+  display:block;
+  color:#666;
+}
+
+.day strong{
+  display:block;
+  margin-top:5px;
+}
+
+.cheapest{
+  background:#eaffd9;
+  border-color:#79d84a;
+}
+
+.fare-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.fare{
+  border:2px solid #ddd;
+  border-radius:18px;
+  padding:25px;
+  background:white;
+}
+
+.fare h3{
+  font-size:24px;
+}
+
+.fare .price{
+  font-size:35px;
+  font-weight:900;
+}
+
+.fare ul{
+  line-height:2;
+  padding-left:20px;
+}
+
+.fare button{
+  width:100%;
+  background:#111;
+  color:white;
+  border:0;
+  padding:13px;
+  border-radius:10px;
+  font-weight:900;
+}
+
+.passengers{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:10px;
+}
+
+.counter{
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:12px;
+  background:white;
+}
+
+.counter-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.counter-buttons{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.counter-buttons button{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  border:0;
+  background:#111;
+  color:white;
+}
+
+.count{
+  font-weight:900;
+  min-width:20px;
+  text-align:center;
+}
+
+.total-box{
+  background:#111;
+  color:white;
+  padding:18px;
+  border-radius:15px;
+  margin-top:15px;
+}
+
+.total-box strong{
+  color:var(--yellow);
+  font-size:25px;
+}
+
+.status{
+  padding:6px 10px;
+  border-radius:99px;
+  display:inline-block;
+  font-size:12px;
+  font-weight:900;
+}
+
+.on-time{
+  background:#dfffe9;
+  color:#087a3d;
+}
+
+.boarding{
+  background:#fff0bd;
+  color:#805b00;
+}
+
+.delayed{
+  background:#ffe0e0;
+  color:#a30000;
+}
+
+.flight-row{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  gap:15px;
+  align-items:center;
+  padding:17px 0;
+  border-bottom:1px solid #ddd;
 }
 
 .ticket{
-max-width:950px;
-margin:auto;
-background:white;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 10px 40px #0004;
+  max-width:850px;
+  margin:auto;
+  background:white;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 15px 50px rgba(0,0,0,.15);
 }
 
-.ticket-top{
-background:#111;
-color:#ffd900;
-padding:25px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:20px;
+.ticket-head{
+  background:#111;
+  color:white;
+  padding:25px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
 }
 
-.ticket-top h1{
-font-size:28px;
+.ticket-head .brand{
+  color:var(--yellow);
+  font-size:25px;
+  font-weight:900;
 }
 
-.ticket-main{
-padding:30px;
-}
-
-.ticket-number{
-font-size:20px;
-font-weight:bold;
-color:#555;
+.ticket-body{
+  padding:28px;
 }
 
 .route{
-display:grid;
-grid-template-columns:1fr auto 1fr;
-align-items:center;
-text-align:center;
-gap:20px;
-margin:30px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  margin:20px 0;
 }
 
-.big-code{
-font-size:55px;
-font-weight:900;
+.route-code{
+  font-size:40px;
+  font-weight:900;
 }
 
-.plane{
-font-size:35px;
+.route-line{
+  flex:1;
+  border-top:3px dashed #aaa;
+  text-align:center;
 }
 
-.ticket-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:15px;
+.ticket-info{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
 }
 
-.ticket-item{
-background:#f3f3f3;
-padding:15px;
-border-radius:10px;
-}
-
-.ticket-item small{
-display:block;
-font-weight:bold;
-color:#666;
-margin-bottom:5px;
+.ticket-info div{
+  background:#f4f4f4;
+  padding:12px;
+  border-radius:10px;
 }
 
 .qr{
-width:150px;
-height:150px;
-margin:auto;
-border:10px solid white;
-background:
-repeating-linear-gradient(
-0deg,
-#111 0 4px,
-white 4px 8px
-),
-repeating-linear-gradient(
-90deg,
-transparent 0 5px,
-#111 5px 9px
-);
+  width:160px;
+  height:160px;
+  margin:25px auto;
+  display:grid;
+  grid-template-columns:repeat(13,1fr);
+  gap:2px;
+  padding:7px;
+  background:white;
 }
 
-.scan-box{
-max-width:700px;
-margin:auto;
-background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 5px 20px #0002;
+.qr span{
+  background:#000;
 }
 
-.scan-result{
-margin-top:20px;
-padding:20px;
-border-radius:12px;
-background:#f3f3f3;
+.qr span:nth-child(3n),
+.qr span:nth-child(7n+1){
+  background:transparent;
 }
 
 .admin{
-display:none;
-background:#111;
-color:white;
-min-height:100vh;
-padding-bottom:50px;
-}
-
-.admin-container{
-max-width:1400px;
-margin:auto;
-padding:25px;
-}
-
-.admin-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:20px;
-flex-wrap:wrap;
-padding-bottom:25px;
-}
-
-.admin-logo{
-font-size:30px;
-font-weight:900;
-color:#ffd900;
+  background:#090909;
+  color:white;
+  padding:35px;
+  border-radius:22px;
 }
 
 .admin-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-margin-bottom:30px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
 }
 
 .stat{
-background:#222;
-border:1px solid #444;
-padding:20px;
-border-radius:15px;
+  background:#1b1b1b;
+  padding:20px;
+  border-radius:15px;
 }
 
-.stat-number{
-font-size:35px;
-font-weight:900;
-color:#ffd900;
-margin-top:8px;
+.stat b{
+  display:block;
+  color:var(--yellow);
+  font-size:30px;
 }
 
-.admin-section{
-background:#222;
-padding:25px;
-border-radius:15px;
-margin-bottom:25px;
+.admin input,
+.admin select{
+  padding:11px;
+  border-radius:8px;
+  border:0;
+  margin:5px;
 }
 
-.admin-section h2{
-color:#ffd900;
-margin-bottom:15px;
+.admin button{
+  padding:11px 15px;
+  border:0;
+  border-radius:8px;
+  font-weight:800;
 }
 
 .admin-table{
-width:100%;
-border-collapse:collapse;
-overflow:auto;
+  width:100%;
+  border-collapse:collapse;
+  margin-top:20px;
+  background:#181818;
 }
 
 .admin-table th,
 .admin-table td{
-padding:12px;
-border-bottom:1px solid #444;
-text-align:left;
+  padding:10px;
+  border-bottom:1px solid #333;
+  text-align:left;
 }
 
-.admin-table th{
-color:#ffd900;
+.assistant{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:2000;
 }
 
-.flight-card{
-background:#333;
-padding:18px;
-border-radius:12px;
-margin-bottom:12px;
+.chat-button{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  border:0;
+  background:var(--yellow);
+  font-size:25px;
+  box-shadow:0 5px 20px rgba(0,0,0,.3);
 }
 
-.flight-card strong{
-color:#ffd900;
-font-size:20px;
+.chatbox{
+  display:none;
+  width:340px;
+  max-width:calc(100vw - 30px);
+  height:450px;
+  background:white;
+  border-radius:18px;
+  box-shadow:0 10px 50px rgba(0,0,0,.3);
+  overflow:hidden;
 }
 
-.badge{
-display:inline-block;
-padding:5px 9px;
-border-radius:6px;
-font-size:12px;
-font-weight:bold;
-background:#ffd900;
-color:#111;
+.chat-head{
+  background:#111;
+  color:white;
+  padding:15px;
+  font-weight:900;
+}
+
+.chat-messages{
+  height:340px;
+  overflow:auto;
+  padding:12px;
+}
+
+.msg{
+  padding:10px;
+  border-radius:12px;
+  margin-bottom:8px;
+  max-width:85%;
+}
+
+.bot{
+  background:#eee;
+}
+
+.user{
+  background:#111;
+  color:white;
+  margin-left:auto;
+}
+
+.chat-input{
+  display:flex;
+  border-top:1px solid #ddd;
+}
+
+.chat-input input{
+  flex:1;
+  border:0;
+  padding:13px;
+}
+
+.chat-input button{
+  width:60px;
+  border:0;
+  background:var(--yellow);
 }
 
 footer{
-background:#111;
-color:white;
-text-align:center;
-padding:40px;
+  background:#050505;
+  color:#bbb;
+  padding:40px 20px;
 }
 
-@media(max-width:700px){
-
-nav{
-display:none;
+.footer-inner{
+  max-width:1250px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:25px;
 }
 
-.route{
-grid-template-columns:1fr;
+.footer-title{
+  color:var(--yellow);
+  font-weight:900;
+  font-size:20px;
 }
 
-.big-code{
-font-size:42px;
+.disclaimer{
+  background:#fff3b0;
+  color:#111;
+  padding:15px;
+  text-align:center;
+  font-weight:800;
 }
 
-.ticket-top{
-flex-direction:column;
-align-items:flex-start;
+.hidden{
+  display:none!important;
 }
 
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:3000;
+  padding:20px;
 }
 
-@media print{
-
-body *{
-visibility:hidden;
+.modal-card{
+  background:white;
+  width:min(600px,100%);
+  max-height:90vh;
+  overflow:auto;
+  border-radius:20px;
+  padding:25px;
 }
 
-.ticket,
-.ticket *{
-visibility:visible;
+.modal-card input,
+.modal-card select,
+.modal-card textarea{
+  width:100%;
+  padding:12px;
+  margin:6px 0 12px;
+  border:1px solid #ccc;
+  border-radius:9px;
 }
 
-.ticket{
-position:absolute;
-left:0;
-top:0;
-width:100%;
+.close{
+  float:right;
+  border:0;
+  background:#eee;
+  border-radius:50%;
+  width:35px;
+  height:35px;
 }
 
+@media(max-width:900px){
+  .grid,
+  .cards,
+  .fare-grid,
+  .admin-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .passengers{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+  }
 }
 
+@media(max-width:600px){
+  .nav{
+    flex-direction:column;
+  }
+
+  .navlinks{
+    width:100%;
+  }
+
+  .grid,
+  .cards,
+  .fare-grid,
+  .flex-area,
+  .admin-grid,
+  .passengers,
+  .ticket-info{
+    grid-template-columns:1fr;
+  }
+
+  .flight-row{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr;
+  }
+
+  .route-code{
+    font-size:28px;
+  }
+
+  .hero{
+    padding-top:45px;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<div class="notice">
-⚠️ SINGADOORE AIRLINES IS A FICTIONAL ROLEPLAY AIRLINE
+<div class="topbar">
+  ✈️ ROLEPLAY AIRLINE • ALL PRICES ARE FICTIONAL SINGADOORE CREDITS • BABIES + ELDERS FLY FREE
 </div>
 
 <header>
+  <div class="nav">
+    <div class="logo">✈ SINGADOORE <span>AIRLINES</span></div>
 
-<div class="nav">
+    <div class="navlinks">
+      <button onclick="go('home')">Home</button>
+      <button onclick="go('book')">Book</button>
+      <button onclick="go('offers')">Offers</button>
+      <button onclick="go('destinations')">Destinations</button>
+      <button onclick="go('status')">Flight Status</button>
+      <button onclick="go('membership')">Membership</button>
+      <button onclick="go('experience')">Experience</button>
+      <button onclick="openAdmin()">Admin</button>
+    </div>
 
-<div class="logo">
-✈️ SINGADOORE <span>AIRLINES</span>
-</div>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#booking">Book</a>
-<a href="#airports">Destinations</a>
-<a href="#flights">Flights</a>
-<a href="#scan">Scan Ticket</a>
-<a href="#admin">Admin</a>
-</nav>
-
-</div>
-
+    <button class="member-btn" onclick="go('membership')">
+      ⭐ Join Free
+    </button>
+  </div>
 </header>
 
+<div id="home">
 
-<!-- HOME -->
+<section class="hero">
+  <div class="hero-inner">
 
-<section class="hero" id="home">
+    <span class="badge">WELCOME ABOARD</span>
 
-<div>
+    <h1>
+      Fly your way.<br>
+      <span>Singadoore.</span>
+    </h1>
 
-<h1>SINGADOORE</h1>
+    <p>
+      A kid-friendly fictional airline made for World Flight Simulator roleplay.
+      Pick your trip, build your family group, grab a ticket and take off.
+    </p>
 
-<h2>YOUR WORLD IN THE SKY ✈️</h2>
+    <div class="booking-box" id="book">
 
-<p>
-Welcome to Singadoore Airlines.
-Create fictional flights choose your passengers
-and make your own airline roleplay adventure.
-</p>
+      <div class="tabs">
+        <button class="tab active">Round Trip</button>
+        <button class="tab">One Way</button>
+        <button class="tab">Multi-City</button>
+      </div>
 
-<a href="#booking">
-<button class="btn">
-BOOK A FLIGHT
-</button>
-</a>
+      <div class="grid">
+
+        <div class="field">
+          <label>FROM</label>
+          <input id="fromAirport" placeholder="Airport or city">
+        </div>
+
+        <div class="field">
+          <label>TO</label>
+          <input id="toAirport" placeholder="Airport or city">
+        </div>
+
+        <div class="field">
+          <label>DEPART</label>
+          <input type="date" id="departDate">
+        </div>
+
+        <div class="field">
+          <label>RETURN</label>
+          <input type="date" id="returnDate">
+        </div>
+
+      </div>
+
+      <div class="options">
+        <label>
+          <input type="checkbox" id="flexible">
+          My dates are flexible
+        </label>
+
+        <label>
+          <input type="checkbox" id="nearby">
+          Include nearby airports
+        </label>
+
+        <label>
+          <input type="checkbox" id="milesSearch">
+          Use Singadoore Miles
+        </label>
+      </div>
+
+      <div style="margin-top:20px">
+        <b>WHO IS FLYING?</b>
+
+        <div class="passengers">
+
+          <div class="counter">
+            <div class="counter-top">
+              <span>👶 Baby</span>
+              <div class="counter-buttons">
+                <button onclick="changePax('baby',-1)">−</button>
+                <span class="count" id="babyCount">0</span>
+                <button onclick="changePax('baby',1)">+</button>
+              </div>
+            </div>
+            <small>FREE</small>
+          </div>
+
+          <div class="counter">
+            <div class="counter-top">
+              <span>🧒 Child</span>
+              <div class="counter-buttons">
+                <button onclick="changePax('child',-1)">−</button>
+                <span class="count" id="childCount">0</span>
+                <button onclick="changePax('child',1)">+</button>
+              </div>
+            </div>
+            <small>From 50 credits</small>
+          </div>
+
+          <div class="counter">
+            <div class="counter-top">
+              <span>🧑 Adult</span>
+              <div class="counter-buttons">
+                <button onclick="changePax('adult',-1)">−</button>
+                <span class="count" id="adultCount">1</span>
+                <button onclick="changePax('adult',1)">+</button>
+              </div>
+            </div>
+            <small>From 100 credits</small>
+          </div>
+
+          <div class="counter">
+            <div class="counter-top">
+              <span>👴 Elder</span>
+              <div class="counter-buttons">
+                <button onclick="changePax('elder',-1)">−</button>
+                <span class="count" id="elderCount">0</span>
+                <button onclick="changePax('elder',1)">+</button>
+              </div>
+            </div>
+            <small>FREE</small>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="total-box">
+        <div>Total passengers: <span id="totalPax">1</span></div>
+        <div>Estimated trip price: <strong id="heroPrice">100 credits</strong></div>
+      </div>
+
+      <button class="search-btn" onclick="searchFlights()">
+        🔎 SEARCH FLIGHTS
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<section id="offers">
+
+  <h2 class="section-title">🔥 Today's Offers</h2>
+
+  <p class="section-sub">
+    Fake deals for your Singadoore roleplay trips.
+  </p>
+
+  <div class="cards">
+
+    <div class="card offer yellow-card">
+      <h3>👨‍👩‍👧 Family Flight Week</h3>
+      <p>Bring the whole crew and save on your roleplay flight.</p>
+      <div class="offer-price">10% OFF</div>
+      <button class="cta" onclick="applyOffer('FAMILY10')">Use deal</button>
+    </div>
+
+    <div class="card offer">
+      <h3>🌴 Weekend Getaway</h3>
+      <p>Pick a weekend destination and save on your base fare.</p>
+      <div class="offer-price">25% OFF</div>
+      <button class="cta" onclick="applyOffer('WEEKEND25')">Use deal</button>
+    </div>
+
+    <div class="card offer">
+      <h3>💛 Yellow Friday</h3>
+      <p>Our biggest fictional sale of the week.</p>
+      <div class="offer-price">30% OFF</div>
+      <button class="cta" onclick="applyOffer('YELLOW30')">Use deal</button>
+    </div>
+
+    <div class="card offer">
+      <h3>⭐ Member Deal</h3>
+      <p>Members get bonus miles and special roleplay fares.</p>
+      <div class="offer-price">2X MILES</div>
+      <button class="cta" onclick="go('membership')">Join free</button>
+    </div>
+
+    <div class="card offer">
+      <h3>🗓️ Flexible Date Saver</h3>
+      <p>Let the price calendar find cheaper fictional travel days.</p>
+      <div class="offer-price">SAVE</div>
+      <button class="cta" onclick="go('calendar')">View calendar</button>
+    </div>
+
+    <div class="card offer">
+      <h3>💺 First Class Flash</h3>
+      <p>Upgrade your roleplay trip to First Class.</p>
+      <div class="offer-price">250 credits</div>
+      <button class="cta" onclick="go('book')">Book</button>
+    </div>
+
+    <div class="card offer">
+      <h3>👶 Baby FREE</h3>
+      <p>Babies are always free in Singadoore roleplay.</p>
+      <div class="offer-price">FREE</div>
+    </div>
+
+    <div class="card offer">
+      <h3>👴 Elder FREE</h3>
+      <p>Elders are always free in Singadoore roleplay.</p>
+      <div class="offer-price">FREE</div>
+    </div>
+
+  </div>
+</section>
+
+<section id="destinations">
+
+  <h2 class="section-title">🌎 Explore Destinations</h2>
+
+  <p class="section-sub">
+    Search thousands of airport records from the worldwide airport database.
+  </p>
+
+  <div class="airport-box">
+
+    <input
+      id="airportSearch"
+      style="width:100%;padding:15px;border:1px solid #ccc;border-radius:10px"
+      placeholder="Search city airport IATA ICAO or country..."
+      oninput="searchAirports()"
+    >
+
+    <div id="airportStatus">
+      Loading worldwide airport data...
+    </div>
+
+    <div class="airport-results" id="airportResults"></div>
+
+  </div>
+
+</section>
+
+<section id="calendar">
+
+  <h2 class="section-title">📅 Flexible Date Price Calendar</h2>
+
+  <p class="section-sub">
+    Fictional sample prices. Green days are cheaper.
+  </p>
+
+  <div class="flex-area">
+
+    <div class="card">
+      <h3>Find a cheaper day</h3>
+
+      <div class="field">
+        <label>FROM</label>
+        <input id="calFrom" placeholder="Baton Rouge">
+      </div>
+
+      <div class="field">
+        <label>TO</label>
+        <input id="calTo" placeholder="New York">
+      </div>
+
+      <button class="search-btn" onclick="generateCalendar()">
+        Generate prices
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Price calendar</h3>
+      <div class="calendar" id="priceCalendar"></div>
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <h2 class="section-title">💺 Choose Your Experience</h2>
+
+  <p class="section-sub">
+    Pick the fictional cabin that fits your trip.
+  </p>
+
+  <div class="fare-grid">
+
+    <div class="fare">
+      <h3>Economy</h3>
+      <div class="price">100</div>
+      <p>credits per adult</p>
+      <ul>
+        <li>Standard seat</li>
+        <li>Carry-on</li>
+        <li>Roleplay boarding</li>
+        <li>Basic miles</li>
+      </ul>
+      <button onclick="selectCabin('Economy')">Choose Economy</button>
+    </div>
+
+    <div class="fare">
+      <h3>Business</h3>
+      <div class="price">200</div>
+      <p>credits per adult</p>
+      <ul>
+        <li>Better seat</li>
+        <li>Extra baggage</li>
+        <li>Priority boarding</li>
+        <li>2X roleplay miles</li>
+      </ul>
+      <button onclick="selectCabin('Business')">Choose Business</button>
+    </div>
+
+    <div class="fare">
+      <h3>First</h3>
+      <div class="price">300</div>
+      <p>credits per adult</p>
+      <ul>
+        <li>Premium seat</li>
+        <li>Extra baggage</li>
+        <li>Priority boarding</li>
+        <li>3X roleplay miles</li>
+      </ul>
+      <button onclick="selectCabin('First')">Choose First</button>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="experience" class="dark-section">
+
+<div class="dark-inner">
+
+  <h2 class="section-title">✈️ Onboard Experience</h2>
+
+  <p class="section-sub">
+    Make your fictional flight feel like a real trip.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>📺 Entertainment</h3>
+      <p>Movies games music and flight maps for roleplay.</p>
+    </div>
+
+    <div class="card">
+      <h3>🍔 Food & Drinks</h3>
+      <p>Choose a fictional meal before your flight.</p>
+    </div>
+
+    <div class="card">
+      <h3>📶 Wi-Fi</h3>
+      <p>Free fictional onboard Wi-Fi.</p>
+    </div>
+
+    <div class="card">
+      <h3>💺 Premium Seats</h3>
+      <p>Business and First Class seating options.</p>
+    </div>
+
+  </div>
 
 </div>
 
 </section>
 
+<section id="status">
 
-<!-- BOOKING -->
+  <h2 class="section-title">🛫 Flight Status</h2>
 
-<section id="booking">
+  <p class="section-sub">
+    Check the fictional live-style flight board.
+  </p>
 
-<h2 class="section-title">
-🎫 Book A Roleplay Flight
-</h2>
-
-<p class="section-sub">
-Choose exactly who is going on your fictional flight.
-</p>
-
-<div class="booking-box">
-
-<div class="form-grid">
-
-<div>
-
-<label>Booking Name</label>
-
-<input
-id="bookingName"
-placeholder="Example: Smith Family"
->
-
-</div>
-
-<div>
-
-<label>Departure</label>
-
-<input
-id="departure"
-placeholder="LAX"
->
-
-</div>
-
-<div>
-
-<label>Arrival</label>
-
-<input
-id="arrival"
-placeholder="LHR"
->
-
-</div>
-
-<div>
-
-<label>Travel Date</label>
-
-<input
-id="travelDate"
-type="date"
->
-
-</div>
-
-<div>
-
-<label>Cabin</label>
-
-<select id="cabin" onchange="calculatePrice()">
-
-<option value="economy">
-Economy
-</option>
-
-<option value="business">
-Business
-</option>
-
-<option value="first">
-First
-</option>
-
-</select>
-
-</div>
-
-</div>
-
-
-<div class="people-box">
-
-<h2>👨‍👩‍👧‍👦 Who Is Going?</h2>
-
-<p style="margin-top:8px;">
-You can make custom groups like
-1 elder + 2 adults + 2 children.
-</p>
-
-
-<div class="people-grid">
-
-<div>
-
-<label>👶 Babies</label>
-
-<input
-id="babies"
-type="number"
-min="0"
-value="0"
-oninput="calculatePrice()"
->
-
-</div>
-
-<div>
-
-<label>🧒 Children</label>
-
-<input
-id="children"
-type="number"
-min="0"
-value="0"
-oninput="calculatePrice()"
->
-
-</div>
-
-<div>
-
-<label>🧑 Adults</label>
-
-<input
-id="adults"
-type="number"
-min="0"
-value="1"
-oninput="calculatePrice()"
->
-
-</div>
-
-<div>
-
-<label>👴 Elders</label>
-
-<input
-id="elders"
-type="number"
-min="0"
-value="0"
-oninput="calculatePrice()"
->
-
-</div>
-
-</div>
-
-
-<div class="total">
-
-Total Passengers:
-<span id="totalPeople">1</span>
-
-<br>
-
-Total Roleplay Fare:
-<span id="totalPrice">$100</span>
-
-</div>
-
-</div>
-
-
-<button
-class="btn"
-onclick="createFamilyBooking()"
->
-🎫 CREATE TICKETS
-</button>
-
-</div>
+  <div id="flightBoard"></div>
 
 </section>
 
+<section>
 
-<!-- AIRPORTS -->
+  <h2 class="section-title">🛩️ Singadoore Fleet</h2>
 
-<section id="airports">
+  <div class="cards">
 
-<h2 class="section-title">
-🌎 Worldwide Destinations
-</h2>
+    <div class="card">
+      <h3>SG A320</h3>
+      <p>Short and medium routes.</p>
+      <b>180 seats</b>
+    </div>
 
-<p class="section-sub">
-Search real-world airports for your fictional roleplay.
-</p>
+    <div class="card">
+      <h3>SG A350</h3>
+      <p>Long distance roleplay routes.</p>
+      <b>325 seats</b>
+    </div>
 
-<div class="airport-search">
+    <div class="card">
+      <h3>SG 787</h3>
+      <p>International routes.</p>
+      <b>290 seats</b>
+    </div>
 
-<h2>🔎 Airport Finder</h2>
+    <div class="card">
+      <h3>SG 747</h3>
+      <p>Heavy aircraft roleplay.</p>
+      <b>410 seats</b>
+    </div>
 
-<p style="margin:10px 0;color:#ccc;">
-Search airport names cities IATA codes or ICAO codes.
-</p>
-
-<input
-id="airportSearch"
-placeholder="Search Tokyo London Dubai LAX..."
-oninput="searchAirports()"
->
-
-<button
-class="btn"
-onclick="loadAirports()"
->
-LOAD WORLD AIRPORTS
-</button>
-
-<div id="airportMessage" style="margin-top:15px;color:#ffd900;">
-Airport database not loaded yet.
-</div>
-
-<div
-id="airportResults"
-class="airport-results"
-></div>
-
-</div>
+  </div>
 
 </section>
 
+<section id="membership">
 
-<!-- ONGOING FLIGHTS -->
+  <h2 class="section-title">⭐ Singadoore Membership</h2>
 
-<section id="flights">
+  <p class="section-sub">
+    Free fictional loyalty program.
+  </p>
 
-<h2 class="section-title">
-🛫 Ongoing Flights
-</h2>
+  <div class="card">
 
-<p class="section-sub">
-Fictional Singadoore Airlines flights currently in the air.
-</p>
+    <h3 id="memberGreeting">Join Singadoore Rewards</h3>
 
-<div
-id="publicFlights"
-class="grid"
->
-</div>
+    <p>
+      Earn fictional Singadoore Miles whenever you create a booking.
+    </p>
 
-</section>
+    <ul>
+      <li>⭐ Earn miles</li>
+      <li>🎁 Member offers</li>
+      <li>💺 Fictional upgrade rewards</li>
+      <li>🔥 Special sale access</li>
+    </ul>
 
+    <button class="cta" onclick="joinMembership()">
+      Join Free
+    </button>
 
-<!-- SCANNER -->
+    <div style="margin-top:20px">
+      Your Miles:
+      <b id="mileDisplay">0</b>
+    </div>
 
-<section id="scan">
-
-<h2 class="section-title">
-📱 Flight Attendant Ticket Scanner
-</h2>
-
-<p class="section-sub">
-For Singadoore roleplay staff.
-</p>
-
-<div class="scan-box">
-
-<h2>🎫 Scan / Check Ticket</h2>
-
-<p style="margin:10px 0;">
-Enter the fictional ticket number or booking code.
-</p>
-
-<input
-id="scanInput"
-placeholder="Example SA-123456"
->
-
-<button
-class="btn"
-onclick="scanTicket()"
->
-SCAN TICKET
-</button>
-
-<div
-id="scanResult"
-class="scan-result"
->
-No ticket scanned.
-</div>
-
-</div>
+  </div>
 
 </section>
 
+<section>
 
-<!-- ADMIN LOGIN -->
+  <h2 class="section-title">🧳 Baggage</h2>
 
-<section id="adminLogin">
+  <div class="cards">
 
-<h2 class="section-title">
-🔐 Admin Panel
-</h2>
+    <div class="card">
+      <h3>Economy</h3>
+      <p>1 carry-on + 1 personal item.</p>
+    </div>
 
-<p class="section-sub">
-Singadoore Airlines roleplay management.
-</p>
+    <div class="card">
+      <h3>Business</h3>
+      <p>2 carry-ons + 2 checked bags.</p>
+    </div>
 
-<div class="scan-box">
+    <div class="card">
+      <h3>First</h3>
+      <p>2 carry-ons + 3 checked bags.</p>
+    </div>
 
-<h2>Admin Login</h2>
+    <div class="card">
+      <h3>Family</h3>
+      <p>Extra roleplay baggage allowance.</p>
+    </div>
 
-<p style="margin:10px 0;">
-Demo admin PIN:
-<strong>1234</strong>
-</p>
-
-<input
-id="adminPassword"
-type="password"
-placeholder="Enter admin PIN"
->
-
-<button
-class="btn"
-onclick="openAdmin()"
->
-OPEN ADMIN PANEL
-</button>
-
-<p style="margin-top:15px;color:#777;">
-This is NOT a real secure login.
-It is only for this fictional roleplay website.
-</p>
-
-</div>
+  </div>
 
 </section>
 
-
-<!-- ADMIN -->
-
-<section
-id="admin"
-class="admin"
->
-
-<div class="admin-container">
-
-<div class="admin-header">
-
-<div class="admin-logo">
-✈️ SINGADOORE ADMIN
-</div>
-
-<button
-class="btn"
-onclick="closeAdmin()"
->
-EXIT ADMIN
-</button>
-
-</div>
-
-
-<!-- DASHBOARD -->
-
-<div class="admin-grid">
-
-<div class="stat">
-
-<h3>🎫 Bookings</h3>
-
-<div
-class="stat-number"
-id="adminBookings"
->
-0
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<h3>👥 Passengers</h3>
-
-<div
-class="stat-number"
-id="adminPassengers"
->
-0
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<h3>🛫 Ongoing Flights</h3>
-
-<div
-class="stat-number"
-id="adminFlights"
->
-0
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<h3>💼 Job Applicants</h3>
-
-<div
-class="stat-number"
-id="adminApplicants"
->
-0
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ONGOING FLIGHTS ADMIN -->
-
-<div class="admin-section">
-
-<h2>
-🛫 Ongoing Flights
-</h2>
-
-<div id="adminFlightsList"></div>
-
-<button
-class="btn"
-onclick="addDemoFlight()"
->
-+ ADD ROLEPLAY FLIGHT
-</button>
-
-</div>
-
-
-<!-- JOB APPLICANTS -->
-
-<div class="admin-section">
-
-<h2>
-👥 People Wanting To Be Hired
-</h2>
-
-<div
-id="applicantList"
-></div>
-
-</div>
-
-
-<!-- BOOKINGS -->
-
-<div class="admin-section">
-
-<h2>
-🎫 All Bookings
-</h2>
-
-<div style="overflow:auto;">
-
-<table class="admin-table">
-
-<thead>
-
-<tr>
-
-<th>Ticket</th>
-<th>Name</th>
-<th>Route</th>
-<th>Passengers</th>
-<th>Cabin</th>
-<th>Gate</th>
-
-</tr>
-
-</thead>
-
-<tbody
-id="bookingTable"
->
-</tbody>
-
-</table>
-
-</div>
-
-</div>
-
-
-<!-- HIRE -->
-
-<div class="admin-section">
-
-<h2>
-➕ Add Job Applicant
-</h2>
-
-<div class="form-grid">
-
-<div>
-
-<label>Name</label>
-
-<input
-id="applicantName"
-placeholder="Roleplay name"
->
-
-</div>
-
-<div>
-
-<label>Role</label>
-
-<select id="applicantRole">
-
-<option>
-Flight Attendant
-</option>
-
-<option>
-Pilot
-</option>
-
-<option>
-Ground Crew
-</option>
-
-<option>
-Gate Agent
-</option>
-
-<option>
-Manager
-</option>
-
-</select>
-
-</div>
-
-</div>
-
-<button
-class="btn"
-onclick="addApplicant()"
->
-ADD APPLICANT
-</button>
-
-</div>
-
-
-<!-- ADMIN TOOLS -->
-
-<div class="admin-section">
-
-<h2>
-🛠️ Admin Tools
-</h2>
-
-<button
-class="btn"
-onclick="clearBookings()"
->
-CLEAR BOOKINGS
-</button>
-
-<button
-class="btn"
-onclick="clearApplicants()"
->
-CLEAR APPLICANTS
-</button>
-
-<button
-class="btn"
-onclick="resetFlights()"
->
-RESET FLIGHTS
-</button>
-
-</div>
-
-</div>
+<section>
+
+  <h2 class="section-title">📋 Singadoore Rules</h2>
+
+  <div class="card">
+    <ul>
+      <li>Be respectful to other players.</li>
+      <li>Follow the World Flight Simulator rules.</li>
+      <li>Do not pretend these tickets are real airline tickets.</li>
+      <li>Passenger IDs on this website are fictional.</li>
+      <li>All prices are fictional roleplay credits.</li>
+      <li>Babies and elders fly free in this roleplay system.</li>
+    </ul>
+  </div>
 
 </section>
 
+<section>
+
+  <h2 class="section-title">💼 Want to Join the Crew?</h2>
+
+  <div class="card">
+
+    <p>
+      Apply for a fictional Singadoore Airlines roleplay position.
+    </p>
+
+    <button class="cta" onclick="openJob()">
+      Apply for a Job
+    </button>
+
+  </div>
+
+</section>
+
+<section>
+
+  <h2 class="section-title">❓ FAQ</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Is this a real airline?</h3>
+      <p>No. Singadoore Airlines is a fictional roleplay airline.</p>
+    </div>
+
+    <div class="card">
+      <h3>Are the tickets real?</h3>
+      <p>No. They are fictional roleplay tickets.</p>
+    </div>
+
+    <div class="card">
+      <h3>Can babies fly free?</h3>
+      <p>Yes. Babies are free in this roleplay system.</p>
+    </div>
+
+    <div class="card">
+      <h3>Can elders fly free?</h3>
+      <p>Yes. Elders are free in this roleplay system.</p>
+    </div>
+
+  </div>
+
+</section>
+
+</div>
 
 <footer>
 
-<h2>
-✈️ <strong>SINGADOORE AIRLINES</strong>
-</h2>
+  <div class="footer-inner">
 
-<p style="margin-top:10px;">
-Fictional airline made for roleplay.
-</p>
+    <div>
+      <div class="footer-title">SINGADOORE AIRLINES</div>
+      <p>
+        A fictional kid-friendly airline made for roleplay and World Flight Simulator.
+      </p>
+    </div>
 
-<p style="margin-top:15px;color:#aaa;">
-NO REAL BOOKINGS • NO REAL PAYMENTS • NO REAL TRAVEL
-</p>
+    <div>
+      <div class="footer-title">Travel</div>
+      <p onclick="go('book')">Book a Flight</p>
+      <p onclick="go('offers')">Offers</p>
+      <p onclick="go('destinations')">Destinations</p>
+    </div>
+
+    <div>
+      <div class="footer-title">Manage</div>
+      <p onclick="go('status')">Flight Status</p>
+      <p onclick="lookupTicket()">Find My Ticket</p>
+      <p onclick="openScanner()">Ticket Scanner</p>
+    </div>
+
+    <div>
+      <div class="footer-title">Company</div>
+      <p onclick="openAdmin()">Admin</p>
+      <p onclick="openJob()">Careers</p>
+      <p>Roleplay Only</p>
+    </div>
+
+  </div>
 
 </footer>
 
+<div class="assistant">
 
-<!-- TICKET PAGE -->
+  <div class="chatbox" id="chatbox">
 
-<div
-id="ticketPage"
-class="ticket-page"
->
+    <div class="chat-head">
+      🤖 Singadoore Assistant
+    </div>
 
-<div class="ticket">
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg bot">
+        Hey! 👋 I'm the Singadoore roleplay assistant. Ask me about flights tickets offers or baggage!
+      </div>
+    </div>
 
-<div class="ticket-top">
+    <div class="chat-input">
+      <input id="chatInput" placeholder="Ask something..." onkeydown="chatKey(event)">
+      <button onclick="sendChat()">➤</button>
+    </div>
 
-<div>
+  </div>
 
-<h1>
-✈️ SINGADOORE AIRLINES
-</h1>
-
-<p>
-ROLEPLAY BOARDING PASS
-</p>
-
-</div>
-
-<div>
-
-<strong
-id="ticketFlight"
->
-SA000
-</strong>
+  <button class="chat-button" onclick="toggleChat()">🤖</button>
 
 </div>
 
-</div>
+<div class="modal" id="modal">
 
+  <div class="modal-card">
 
-<div class="ticket-main">
+    <button class="close" onclick="closeModal()">×</button>
 
-<div class="ticket-number">
+    <div id="modalContent"></div>
 
-TICKET NUMBER:
-<span id="ticketNumber">
-SA-000000
-</span>
+  </div>
 
 </div>
-
-
-<h2
-id="ticketName"
-style="margin-top:10px;"
->
-PASSENGER
-</h2>
-
-
-<div class="route">
-
-<div>
-
-<div
-class="big-code"
-id="ticketFrom"
->
----
-</div>
-
-<div
-id="ticketFromName"
->
-Departure
-</div>
-
-</div>
-
-
-<div class="plane">
-✈️
-</div>
-
-
-<div>
-
-<div
-class="big-code"
-id="ticketTo"
->
----
-</div>
-
-<div
-id="ticketToName"
->
-Arrival
-</div>
-
-</div>
-
-</div>
-
-
-<div class="ticket-grid">
-
-<div class="ticket-item">
-
-<small>PASSENGER ID</small>
-
-<span
-id="ticketPassengerID"
->
-SG-000000
-</span>
-
-</div>
-
-
-<div class="ticket-item">
-
-<small>BOOKING CODE</small>
-
-<span
-id="ticketBookingCode"
->
-ABC123
-</span>
-
-</div>
-
-
-<div class="ticket-item">
-
-<small>DATE</small>
-
-<span
-id="ticketDate"
->
----
-</span>
-
-</div>
-
-
-<div class="ticket-item">
-
-<small>GATE</small>
-
-<span
-id="ticketGate"
->
-A1
-</span>
-
-</div>
-
-
-<div class="ticket-item">
-
-<small>SEAT</small>
-
-<span
-id="ticketSeats"
->
----
-</span>
-
-</div>
-
-
-<div class="ticket-item">
-
-<small>CABIN</small>
-
-<span
-id="ticketCabin"
->
-ECONOMY
-</span>
-
-</div>
-
-
-<div class="ticket-item">
-
-<small>BOARDING</small>
-
-<span
-id="ticketBoarding"
->
----
-</span>
-
-</div>
-
-
-<div class="ticket-item">
-
-<small>DEPARTURE</small>
-
-<span
-id="ticketDeparture"
->
----
-</span>
-
-</div>
-
-
-<div class="ticket-item">
-
-<small>ARRIVAL</small>
-
-<span
-id="ticketArrival"
->
----
-</span>
-
-</div>
-
-
-<div class="ticket-item">
-
-<small>AIRCRAFT</small>
-
-<span
-id="ticketAircraft"
->
-SG-300
-</span>
-
-</div>
-
-</div>
-
-
-<div style="
-display:grid;
-grid-template-columns:1fr 180px;
-gap:30px;
-align-items:center;
-margin-top:30px;
-">
-
-<div>
-
-<h3>
-🧳 Baggage
-</h3>
-
-<p style="margin-top:8px;">
-Carry-on included
-</p>
-
-<p>
-Checked baggage included for roleplay
-</p>
-
-<br>
-
-<h3>
-⚠️ ROLEPLAY ONLY
-</h3>
-
-<p style="color:#666;margin-top:5px;">
-This ticket is not valid for real-world travel.
-</p>
-
-</div>
-
-
-<div>
-
-<div class="qr"></div>
-
-<p style="
-text-align:center;
-font-size:12px;
-margin-top:5px;
-">
-SCAN FOR ROLEPLAY
-</p>
-
-</div>
-
-</div>
-
-
-<button
-class="btn"
-onclick="window.print()"
->
-🖨️ PRINT TICKET
-</button>
-
-<button
-class="btn dark-btn"
-onclick="closeTicket()"
->
-← BACK TO WEBSITE
-</button>
-
-</div>
-
-</div>
-
-</div>
-
 
 <script>
 
+/* =========================
+   BASIC DATA
+========================= */
 
-/* =========================================
-   PRICE SYSTEM
-========================================= */
-
-const PRICES = {
-
-baby:{
-economy:0,
-business:0,
-first:0
-},
-
-child:{
-economy:50,
-business:100,
-first:150
-},
-
-adult:{
-economy:100,
-business:200,
-first:300
-},
-
-elder:{
-economy:0,
-business:0,
-first:0
-}
-
+const prices={
+  Economy:100,
+  Business:200,
+  First:300
 };
 
-
-/* =========================================
-   BOOKING STORAGE
-========================================= */
-
-let bookings =
-JSON.parse(
-localStorage.getItem("singadooreBookings") || "[]"
-);
-
-let applicants =
-JSON.parse(
-localStorage.getItem("singadooreApplicants") || "[]"
-);
-
-let flights =
-JSON.parse(
-localStorage.getItem("singadooreFlights") || "[]"
-);
-
-
-/* =========================================
-   RANDOM FUNCTIONS
-========================================= */
-
-function randomNumber(min,max){
-
-return Math.floor(
-Math.random()*(max-min+1)
-)+min;
-
-}
-
-
-function randomLetters(length){
-
-const letters =
-"ABCDEFGHJKLMNPQRSTUVWXYZ";
-
-let result="";
-
-for(let i=0;i<length;i++){
-
-result +=
-letters[
-Math.floor(
-Math.random()*letters.length
-)
-];
-
-}
-
-return result;
-
-}
-
-
-function makeTicketNumber(){
-
-return "SA-" +
-randomNumber(100000,999999);
-
-}
-
-
-function makePassengerID(){
-
-return "SG-" +
-randomNumber(100000,999999);
-
-}
-
-
-function makeBookingCode(){
-
-return randomLetters(3) +
-randomNumber(100,999);
-
-}
-
-
-function makeFlightNumber(){
-
-return "SA" +
-randomNumber(100,9999);
-
-}
-
-
-function makeGate(){
-
-return ["A","B","C","D"][
-randomNumber(0,3)
-] +
-randomNumber(1,40);
-
-}
-
-
-function makeSeat(){
-
-return randomNumber(1,45) +
-["A","B","C","D","E","F"][
-randomNumber(0,5)
-];
-
-}
-
-
-function makeTime(){
-
-let h =
-randomNumber(1,12);
-
-let m =
-String(randomNumber(0,59))
-.padStart(2,"0");
-
-let ap =
-Math.random()>.5
-? "AM"
-: "PM";
-
-return h+":"+m+" "+ap;
-
-}
-
-
-function makeAircraft(){
-
-return [
-"SG-100",
-"SG-200",
-"SG-300",
-"SG-400"
-][
-randomNumber(0,3)
-];
-
-}
-
-
-/* =========================================
-   PRICE CALCULATOR
-========================================= */
-
-function calculatePrice(){
-
-const cabin =
-document.getElementById("cabin").value;
-
-const babies =
-Math.max(
-0,
-Number(document.getElementById("babies").value)
-);
-
-const children =
-Math.max(
-0,
-Number(document.getElementById("children").value)
-);
-
-const adults =
-Math.max(
-0,
-Number(document.getElementById("adults").value)
-);
-
-const elders =
-Math.max(
-0,
-Number(document.getElementById("elders").value)
-);
-
-
-const totalPeople =
-babies+
-children+
-adults+
-elders;
-
-
-const totalPrice =
-
-babies * PRICES.baby[cabin] +
-
-children * PRICES.child[cabin] +
-
-adults * PRICES.adult[cabin] +
-
-elders * PRICES.elder[cabin];
-
-
-document.getElementById("totalPeople")
-.textContent =
-totalPeople;
-
-
-document.getElementById("totalPrice")
-.textContent =
-"$"+totalPrice;
-
-}
-
-
-calculatePrice();
-
-
-/* =========================================
-   CREATE FAMILY BOOKING
-========================================= */
-
-function createFamilyBooking(){
-
-const name =
-document.getElementById("bookingName")
-.value.trim();
-
-const departure =
-document.getElementById("departure")
-.value.trim()
-.toUpperCase();
-
-const arrival =
-document.getElementById("arrival")
-.value.trim()
-.toUpperCase();
-
-const date =
-document.getElementById("travelDate")
-.value;
-
-const cabin =
-document.getElementById("cabin")
-.value;
-
-
-const babies =
-Number(document.getElementById("babies").value);
-
-const children =
-Number(document.getElementById("children").value);
-
-const adults =
-Number(document.getElementById("adults").value);
-
-const elders =
-Number(document.getElementById("elders").value);
-
-
-const totalPeople =
-babies+
-children+
-adults+
-elders;
-
-
-if(!name){
-
-alert("Enter a booking name.");
-
-return;
-
-}
-
-
-if(!departure || !arrival){
-
-alert("Enter both airports.");
-
-return;
-
-}
-
-
-if(departure===arrival){
-
-alert("Departure and arrival cannot be the same.");
-
-return;
-
-}
-
-
-if(totalPeople<1){
-
-alert("Add at least one passenger.");
-
-return;
-
-}
-
-
-const totalPrice =
-
-babies * PRICES.baby[cabin] +
-
-children * PRICES.child[cabin] +
-
-adults * PRICES.adult[cabin] +
-
-elders * PRICES.elder[cabin];
-
-
-const passengerIDs=[];
-
-for(
-let i=0;
-i<totalPeople;
-i++
-){
-
-passengerIDs.push(
-makePassengerID()
-);
-
-}
-
-
-const seats=[];
-
-for(
-let i=0;
-i<totalPeople;
-i++
-){
-
-seats.push(
-makeSeat()
-);
-
-}
-
-
-const booking={
-
-ticketNumber:
-makeTicketNumber(),
-
-bookingCode:
-makeBookingCode(),
-
-name:name,
-
-departure:departure,
-
-arrival:arrival,
-
-date:
-date || "ROLEPLAY DATE",
-
-cabin:cabin,
-
-babies:babies,
-
-children:children,
-
-adults:adults,
-
-elders:elders,
-
-totalPeople:totalPeople,
-
-totalPrice:totalPrice,
-
-passengerIDs:
-passengerIDs,
-
-seats:seats,
-
-flight:
-makeFlightNumber(),
-
-gate:
-makeGate(),
-
-boarding:
-makeTime(),
-
-departureTime:
-makeTime(),
-
-arrivalTime:
-makeTime(),
-
-aircraft:
-makeAircraft(),
-
-created:
-Date.now()
-
+let selectedCabin="Economy";
+
+let pax={
+  baby:0,
+  child:0,
+  adult:1,
+  elder:0
 };
 
-
-bookings.push(booking);
-
-saveData();
-
-showTicket(booking);
-
-}
-
-
-/* =========================================
-   SHOW TICKET PAGE
-========================================= */
-
-function showTicket(booking){
-
-document.body
-.querySelector("header")
-.style.display="none";
-
-document.body
-.querySelector(".notice")
-.style.display="none";
-
-document.body
-.querySelectorAll("section")
-.forEach(
-s=>s.style.display="none"
-);
-
-document.body
-.querySelector("footer")
-.style.display="none";
-
-
-document.getElementById("ticketPage")
-.style.display="block";
-
-
-document.getElementById("ticketFlight")
-.textContent=
-booking.flight;
-
-
-document.getElementById("ticketNumber")
-.textContent=
-booking.ticketNumber;
-
-
-document.getElementById("ticketName")
-.textContent=
-booking.name.toUpperCase();
-
-
-document.getElementById("ticketFrom")
-.textContent=
-booking.departure;
-
-
-document.getElementById("ticketTo")
-.textContent=
-booking.arrival;
-
-
-document.getElementById("ticketDate")
-.textContent=
-booking.date;
-
-
-document.getElementById("ticketGate")
-.textContent=
-booking.gate;
-
-
-document.getElementById("ticketSeats")
-.textContent=
-booking.seats.join(" • ");
-
-
-document.getElementById("ticketCabin")
-.textContent=
-booking.cabin.toUpperCase();
-
-
-document.getElementById("ticketBoarding")
-.textContent=
-booking.boarding;
-
-
-document.getElementById("ticketDeparture")
-.textContent=
-booking.departureTime;
-
-
-document.getElementById("ticketArrival")
-.textContent=
-booking.arrivalTime;
-
-
-document.getElementById("ticketAircraft")
-.textContent=
-booking.aircraft;
-
-
-document.getElementById("ticketBookingCode")
-.textContent=
-booking.bookingCode;
-
-
-document.getElementById("ticketPassengerID")
-.textContent=
-booking.passengerIDs.join(" • ");
-
-}
-
-
-function closeTicket(){
-
-document.getElementById("ticketPage")
-.style.display="none";
-
-document.body
-.querySelector("header")
-.style.display="block";
-
-document.body
-.querySelector(".notice")
-.style.display="block";
-
-document.body
-.querySelectorAll("section")
-.forEach(
-s=>s.style.display=""
-);
-
-document.body
-.querySelector("footer")
-.style.display="block";
-
-window.scrollTo(0,0);
-
-}
-
-
-/* =========================================
-   TICKET SCANNER
-========================================= */
-
-function scanTicket(){
-
-const search =
-document.getElementById("scanInput")
-.value.trim()
-.toUpperCase();
-
-const result =
-document.getElementById("scanResult");
-
-
-if(!search){
-
-result.innerHTML=
-"Enter a ticket number or booking code.";
-
-return;
-
-}
-
-
-const booking =
-bookings.find(b=>
-
-b.ticketNumber.toUpperCase()===search ||
-
-b.bookingCode.toUpperCase()===search ||
-
-b.passengerIDs.some(
-id=>id.toUpperCase()===search
-)
-
-);
-
-
-if(!booking){
-
-result.innerHTML=`
-
-<h2 style="color:#b00000;">
-❌ TICKET NOT FOUND
-</h2>
-
-<p style="margin-top:8px;">
-No Singadoore roleplay ticket matches that number.
-</p>
-
-`;
-
-return;
-
-}
-
-
-result.innerHTML=`
-
-<h2 style="color:green;">
-✅ TICKET VALID
-</h2>
-
-<br>
-
-<p>
-<strong>Passenger:</strong>
-${escapeHTML(booking.name)}
-</p>
-
-<p>
-<strong>Flight:</strong>
-${booking.flight}
-</p>
-
-<p>
-<strong>Route:</strong>
-${booking.departure}
- →
-${booking.arrival}
-</p>
-
-<p>
-<strong>Gate:</strong>
-${booking.gate}
-</p>
-
-<p>
-<strong>Seat(s):</strong>
-${booking.seats.join(" • ")}
-</p>
-
-<p>
-<strong>Passengers:</strong>
-${booking.totalPeople}
-</p>
-
-<p>
-<strong>Booking:</strong>
-${booking.bookingCode}
-</p>
-
-`;
-
-}
-
-
-/* =========================================
-   AIRPORT DATABASE
-========================================= */
+let currentOffer=0;
 
 let airports=[];
 
-let airportsLoaded=false;
+let flights=[
+  {
+    number:"SG101",
+    from:"BTR",
+    to:"ATL",
+    time:"14:20",
+    arrival:"16:05",
+    aircraft:"SG A320",
+    gate:"A12",
+    status:"ON TIME"
+  },
+  {
+    number:"SG202",
+    from:"ATL",
+    to:"LAX",
+    time:"15:10",
+    arrival:"17:35",
+    aircraft:"SG A350",
+    gate:"B07",
+    status:"BOARDING"
+  },
+  {
+    number:"SG303",
+    from:"LAX",
+    to:"NRT",
+    time:"18:30",
+    arrival:"22:20",
+    aircraft:"SG 787",
+    gate:"C21",
+    status:"ON TIME"
+  },
+  {
+    number:"SG404",
+    from:"JFK",
+    to:"LHR",
+    time:"19:15",
+    arrival:"06:30",
+    aircraft:"SG 747",
+    gate:"D09",
+    status:"DELAYED"
+  }
+];
 
+/* =========================
+   NAV
+========================= */
 
-const AIRPORT_DATA_URL =
-"https://davidmegginson.github.io/ourairports-data/airports.csv";
+function go(id){
+  document.getElementById(id)?.scrollIntoView({
+    behavior:"smooth"
+  });
+}
 
+/* =========================
+   PASSENGERS
+========================= */
+
+function changePax(type,amount){
+
+  pax[type]+=amount;
+
+  if(pax[type]<0){
+    pax[type]=0;
+  }
+
+  updatePassengers();
+}
+
+function updatePassengers(){
+
+  document.getElementById("babyCount").textContent=pax.baby;
+  document.getElementById("childCount").textContent=pax.child;
+  document.getElementById("adultCount").textContent=pax.adult;
+  document.getElementById("elderCount").textContent=pax.elder;
+
+  const total=
+    pax.baby+
+    pax.child+
+    pax.adult+
+    pax.elder;
+
+  document.getElementById("totalPax").textContent=total;
+
+  const base=
+    pax.child*50+
+    pax.adult*prices[selectedCabin];
+
+  const final=Math.max(
+    0,
+    Math.round(base*(1-currentOffer))
+  );
+
+  document.getElementById("heroPrice").textContent=
+    final+" credits";
+}
+
+/* =========================
+   CABIN
+========================= */
+
+function selectCabin(cabin){
+
+  selectedCabin=cabin;
+
+  updatePassengers();
+
+  alert(cabin+" selected!");
+}
+
+/* =========================
+   OFFERS
+========================= */
+
+function applyOffer(code){
+
+  currentOffer=0;
+
+  if(code==="FAMILY10") currentOffer=.10;
+  if(code==="WEEKEND25") currentOffer=.25;
+  if(code==="YELLOW30") currentOffer=.30;
+
+  updatePassengers();
+
+  alert(
+    "Offer "+code+
+    " applied! Your fictional price has been updated."
+  );
+
+  go("book");
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchFlights(){
+
+  const from=
+    document.getElementById("fromAirport").value.trim() ||
+    "BTR";
+
+  const to=
+    document.getElementById("toAirport").value.trim() ||
+    "ATL";
+
+  const depart=
+    document.getElementById("departDate").value ||
+    new Date().toISOString().slice(0,10);
+
+  const total=
+    pax.baby+
+    pax.child+
+    pax.adult+
+    pax.elder;
+
+  if(total===0){
+    alert("Add at least one passenger.");
+    return;
+  }
+
+  const base=
+    pax.child*50+
+    pax.adult*prices[selectedCabin];
+
+  const price=
+    Math.round(base*(1-currentOffer));
+
+  const results=`
+    <div class="card" style="margin-top:20px">
+
+      <h2>✈️ Flight Search</h2>
+
+      <p>
+        <b>${from}</b> → <b>${to}</b>
+      </p>
+
+      <p>Date: ${depart}</p>
+
+      <p>Passengers: ${total}</p>
+
+      <p>Cabin: ${selectedCabin}</p>
+
+      <h2>${price} credits</h2>
+
+      <p>
+        ${pax.baby} baby •
+        ${pax.child} child •
+        ${pax.adult} adult •
+        ${pax.elder} elder
+      </p>
+
+      <button class="search-btn"
+        onclick="createBooking('${escapeAttr(from)}','${escapeAttr(to)}','${depart}',${price})">
+        CONTINUE TO BOOK
+      </button>
+
+    </div>
+  `;
+
+  const old=document.getElementById("searchResults");
+
+  if(old) old.remove();
+
+  const div=document.createElement("div");
+  div.id="searchResults";
+  div.innerHTML=results;
+
+  document.querySelector(".booking-box").appendChild(div);
+}
+
+function escapeAttr(value){
+  return value.replaceAll("'","&#39;");
+}
+
+/* =========================
+   BOOKING
+========================= */
+
+function createBooking(from,to,date,price){
+
+  const ticket="SG"+Math.floor(10000000+Math.random()*89999999);
+  const booking="SG-"+Math.random().toString(36).substring(2,8).toUpperCase();
+
+  const gate=
+    String.fromCharCode(
+      65+Math.floor(Math.random()*5)
+    )+
+    Math.floor(1+Math.random()*30);
+
+  const seat=
+    Math.floor(1+Math.random()*40)+
+    ["A","B","C","D","E","F"][Math.floor(Math.random()*6)];
+
+  const passengerId=
+    "SNG-"+Math.floor(100000+Math.random()*899999);
+
+  const flight=
+    "SG"+Math.floor(100+Math.random()*899);
+
+  const bookingData={
+    ticket,
+    booking,
+    passengerId,
+    from,
+    to,
+    date,
+    price,
+    cabin:selectedCabin,
+    gate,
+    seat,
+    flight,
+    aircraft:["SG A320","SG A350","SG 787","SG 747"][
+      Math.floor(Math.random()*4)
+    ],
+    boarding:""+(10+Math.floor(Math.random()*9))+":20",
+    departure:""+(11+Math.floor(Math.random()*8))+":00",
+    arrival:""+(14+Math.floor(Math.random()*7))+":30",
+    passengers:{...pax},
+    created:new Date().toLocaleString()
+  };
+
+  let bookings=
+    JSON.parse(localStorage.getItem("singadooreBookings")||"[]");
+
+  bookings.push(bookingData);
+
+  localStorage.setItem(
+    "singadooreBookings",
+    JSON.stringify(bookings)
+  );
+
+  addMiles(price);
+
+  showTicket(bookingData);
+}
+
+/* =========================
+   TICKET
+========================= */
+
+function showTicket(t){
+
+  const qr=makeQR();
+
+  document.getElementById("modalContent").innerHTML=`
+
+    <div class="ticket">
+
+      <div class="ticket-head">
+
+        <div>
+          <div class="brand">✈ SINGADOORE</div>
+          <small>AIRLINES • ROLEPLAY</small>
+        </div>
+
+        <div>
+          BOARDING PASS
+        </div>
+
+      </div>
+
+      <div class="ticket-body">
+
+        <div style="text-align:center">
+          <b>${t.flight}</b>
+        </div>
+
+        <div class="route">
+
+          <div>
+            <div class="route-code">${t.from}</div>
+            <small>FROM</small>
+          </div>
+
+          <div class="route-line">
+            ✈ ───────── ✈
+          </div>
+
+          <div>
+            <div class="route-code">${t.to}</div>
+            <small>TO</small>
+          </div>
+
+        </div>
+
+        <div class="ticket-info">
+
+          <div>
+            <small>TICKET</small><br>
+            <b>${t.ticket}</b>
+          </div>
+
+          <div>
+            <small>BOOKING</small><br>
+            <b>${t.booking}</b>
+          </div>
+
+          <div>
+            <small>PASSENGER ID</small><br>
+            <b>${t.passengerId}</b>
+          </div>
+
+          <div>
+            <small>DATE</small><br>
+            <b>${t.date}</b>
+          </div>
+
+          <div>
+            <small>GATE</small><br>
+            <b>${t.gate}</b>
+          </div>
+
+          <div>
+            <small>SEAT</small><br>
+            <b>${t.seat}</b>
+          </div>
+
+          <div>
+            <small>AIRCRAFT</small><br>
+            <b>${t.aircraft}</b>
+          </div>
+
+          <div>
+            <small>CABIN</small><br>
+            <b>${t.cabin}</b>
+          </div>
+
+        </div>
+
+        <div style="text-align:center;margin-top:20px">
+
+          <b>BOARDING ${t.boarding}</b>
+          <br>
+          DEPARTURE ${t.departure}
+          • ARRIVAL ${t.arrival}
+
+        </div>
+
+        <div class="qr">
+          ${qr}
+        </div>
+
+        <p style="text-align:center">
+          Scan this fictional QR-style code with the Singadoore roleplay scanner.
+        </p>
+
+        <button class="search-btn" onclick="window.print()">
+          🖨️ PRINT TICKET
+        </button>
+
+      </div>
+
+    </div>
+  `;
+
+  openModal();
+}
+
+function makeQR(){
+
+  let html="";
+
+  for(let i=0;i<169;i++){
+    html+="<span></span>";
+  }
+
+  return html;
+}
+
+/* =========================
+   TICKET LOOKUP
+========================= */
+
+function lookupTicket(){
+
+  const code=prompt(
+    "Enter ticket number booking code or passenger ID:"
+  );
+
+  if(!code) return;
+
+  const bookings=
+    JSON.parse(localStorage.getItem("singadooreBookings")||"[]");
+
+  const found=bookings.find(b=>
+    b.ticket.toLowerCase()===code.toLowerCase() ||
+    b.booking.toLowerCase()===code.toLowerCase() ||
+    b.passengerId.toLowerCase()===code.toLowerCase()
+  );
+
+  if(found){
+    showTicket(found);
+  }else{
+    alert("No fictional Singadoore ticket found.");
+  }
+}
+
+/* =========================
+   SCANNER
+========================= */
+
+function openScanner(){
+
+  document.getElementById("modalContent").innerHTML=`
+
+    <h2>📸 Singadoore Ticket Scanner</h2>
+
+    <p>
+      Enter a ticket number booking code or fictional passenger ID.
+    </p>
+
+    <input id="scanCode"
+      placeholder="SG12345678">
+
+    <button class="search-btn" onclick="scanTicket()">
+      SCAN TICKET
+    </button>
+
+    <div id="scanResult"></div>
+
+  `;
+
+  openModal();
+}
+
+function scanTicket(){
+
+  const code=
+    document.getElementById("scanCode").value.trim();
+
+  const bookings=
+    JSON.parse(localStorage.getItem("singadooreBookings")||"[]");
+
+  const found=bookings.find(b=>
+    b.ticket===code ||
+    b.booking===code ||
+    b.passengerId===code
+  );
+
+  const result=document.getElementById("scanResult");
+
+  if(found){
+
+    result.innerHTML=`
+      <div class="card" style="margin-top:20px">
+        <h2>✅ VALID TICKET</h2>
+        <p><b>${found.flight}</b></p>
+        <p>${found.from} → ${found.to}</p>
+        <p>Passenger ID: ${found.passengerId}</p>
+        <p>Gate: ${found.gate}</p>
+        <p>Seat: ${found.seat}</p>
+      </div>
+    `;
+
+  }else{
+
+    result.innerHTML=`
+      <div class="card" style="margin-top:20px">
+        <h2>❌ NOT FOUND</h2>
+        <p>This ticket is not saved in this browser.</p>
+      </div>
+    `;
+  }
+}
+
+/* =========================
+   AIRPORT DATA
+========================= */
 
 async function loadAirports(){
 
-const message =
-document.getElementById("airportMessage");
+  const status=document.getElementById("airportStatus");
 
-message.textContent=
-"🌎 Loading worldwide airports...";
+  try{
 
+    const response=await fetch(
+      "https://davidmegginson.github.io/ourairports-data/airports.csv"
+    );
 
-try{
+    const text=await response.text();
 
-const response =
-await fetch(AIRPORT_DATA_URL);
+    airports=parseCSV(text);
 
-if(!response.ok)
-throw new Error();
+    status.textContent=
+      airports.length.toLocaleString()+
+      " worldwide airport records loaded.";
 
+  }catch(error){
 
-const text =
-await response.text();
+    status.textContent=
+      "Airport data could not load. You can still use the booking system.";
 
-
-airports =
-parseCSV(text);
-
-
-airports =
-airports.map(a=>({
-
-ident:a.ident||"",
-
-type:a.type||"",
-
-name:a.name||"",
-
-city:a.municipality||"",
-
-country:a.iso_country||"",
-
-iata:a.iata_code||"",
-
-icao:a.icao_code||a.gps_code||"",
-
-scheduled:a.scheduled_service||""
-
-}));
-
-
-airportsLoaded=true;
-
-
-message.textContent=
-"✅ Loaded "+
-airports.length.toLocaleString()+
-" airport records.";
-
-
-searchAirports();
-
-}catch(error){
-
-message.textContent=
-"❌ Airport database failed to load. You can still type airport codes manually.";
-
+  }
 }
-
-}
-
 
 function parseCSV(text){
 
-const rows=[];
+  const rows=[];
+  let row=[];
+  let cell="";
+  let quote=false;
 
-let row=[];
+  for(let i=0;i<text.length;i++){
 
-let value="";
+    const char=text[i];
+    const next=text[i+1];
 
-let quotes=false;
+    if(char==='"' && quote && next==='"'){
+      cell+='"';
+      i++;
+      continue;
+    }
 
+    if(char==='"'){
+      quote=!quote;
+      continue;
+    }
 
-for(let i=0;i<text.length;i++){
+    if(char==="," && !quote){
+      row.push(cell);
+      cell="";
+      continue;
+    }
 
-const c=text[i];
+    if((char==="\n"||char==="\r")&&!quote){
 
-const n=text[i+1];
+      if(char==="\r"&&next==="\n") i++;
 
+      row.push(cell);
 
-if(c==='"' && quotes && n==='"'){
+      if(row.length>1){
+        rows.push(row);
+      }
 
-value+='"';
+      row=[];
+      cell="";
+      continue;
+    }
 
-i++;
+    cell+=char;
+  }
 
+  const headers=rows.shift();
+
+  return rows.map(r=>{
+
+    const obj={};
+
+    headers.forEach((h,i)=>{
+      obj[h]=r[i]||"";
+    });
+
+    return obj;
+
+  });
 }
-
-else if(c==='"'){
-
-quotes=!quotes;
-
-}
-
-else if(c==="," && !quotes){
-
-row.push(value);
-
-value="";
-
-}
-
-else if(
-(c==="\n" || c==="\r")
-&& !quotes
-){
-
-if(c==="\r" && n==="\n")
-i++;
-
-row.push(value);
-
-value="";
-
-rows.push(row);
-
-row=[];
-
-}
-
-else{
-
-value+=c;
-
-}
-
-}
-
-
-const headers =
-rows.shift().map(
-h=>h.trim().toLowerCase()
-);
-
-
-return rows.map(values=>{
-
-const obj={};
-
-headers.forEach(
-(h,i)=>
-obj[h]=
-(values[i]||"").trim()
-);
-
-return obj;
-
-});
-
-}
-
 
 function searchAirports(){
 
-if(!airportsLoaded)
-return;
+  const query=
+    document.getElementById("airportSearch")
+      .value
+      .toLowerCase()
+      .trim();
 
+  const results=
+    document.getElementById("airportResults");
 
-const query =
-document.getElementById("airportSearch")
-.value
-.trim()
-.toLowerCase();
+  if(!query){
 
+    results.innerHTML="";
+    return;
+  }
 
-const results =
-document.getElementById("airportResults");
+  const matches=airports
+    .filter(a=>{
 
+      const text=[
+        a.name,
+        a.municipality,
+        a.iso_country,
+        a.iata_code,
+        a.icao_code,
+        a.ident
+      ].join(" ").toLowerCase();
 
-let found =
-airports.filter(a=>{
+      return text.includes(query);
+    })
+    .slice(0,80);
 
-if(!query)
-return true;
+  results.innerHTML=matches.map(a=>`
 
+    <div class="airport-item"
+      onclick="chooseAirport('${escapeAttr(a.iata_code||a.ident)}')">
 
-return (
+      <b>${a.name}</b>
 
-a.name.toLowerCase()
-.includes(query)||
+      <br>
 
-a.city.toLowerCase()
-.includes(query)||
+      ${a.municipality||""}
+      ${a.iso_country?" • "+a.iso_country:""}
 
-a.country.toLowerCase()
-.includes(query)||
+      <br>
 
-a.iata.toLowerCase()
-.includes(query)||
+      <small>
+        IATA: ${a.iata_code||"—"}
+        • ICAO: ${a.icao_code||"—"}
+      </small>
 
-a.icao.toLowerCase()
-.includes(query)||
+    </div>
 
-a.ident.toLowerCase()
-.includes(query)
-
-);
-
-});
-
-
-found=found.slice(0,100);
-
-
-results.innerHTML="";
-
-
-found.forEach(a=>{
-
-const div =
-document.createElement("div");
-
-div.className="airport";
-
-
-const code =
-a.iata ||
-a.icao ||
-a.ident;
-
-
-div.innerHTML=`
-
-<strong>
-${escapeHTML(code)}
-—
-${escapeHTML(a.name)}
-</strong>
-
-<small>
-📍 ${escapeHTML(a.city)}
- • 🌎 ${escapeHTML(a.country)}
-</small>
-
-<small>
-IATA:
-${escapeHTML(a.iata||"N/A")}
- •
-ICAO:
-${escapeHTML(a.icao||"N/A")}
-</small>
-
-`;
-
-
-div.onclick=()=>{
-
-const input =
-document.getElementById("airportSearch");
-
-
-input.value=
-code;
-
-
-const departure =
-document.getElementById("departure");
-
-
-const arrival =
-document.getElementById("arrival");
-
-
-if(!departure.value){
-
-departure.value=code;
-
-}else{
-
-arrival.value=code;
+  `).join("");
 
 }
 
-document.getElementById("booking")
-.scrollIntoView({
-behavior:"smooth"
-});
+function chooseAirport(code){
 
-};
+  if(!code) return;
 
+  if(!document.getElementById("fromAirport").value){
 
-results.appendChild(div);
+    document.getElementById("fromAirport").value=code;
 
-});
+  }else{
 
+    document.getElementById("toAirport").value=code;
+
+  }
+
+  go("book");
 }
 
+/* =========================
+   PRICE CALENDAR
+========================= */
 
-function escapeHTML(text){
+function generateCalendar(){
 
-return String(text)
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
+  const cal=document.getElementById("priceCalendar");
 
+  cal.innerHTML="";
+
+  for(let i=0;i<21;i++){
+
+    const date=new Date();
+
+    date.setDate(date.getDate()+i);
+
+    const price=
+      60+
+      Math.floor(Math.random()*240);
+
+    const cheap=price<130;
+
+    const day=document.createElement("div");
+
+    day.className="day"+(cheap?" cheapest":"");
+
+    day.innerHTML=`
+
+      <small>
+        ${date.toLocaleDateString(undefined,{
+          month:"short",
+          day:"numeric"
+        })}
+      </small>
+
+      <strong>${price}</strong>
+
+      <small>credits</small>
+
+    `;
+
+    cal.appendChild(day);
+  }
 }
 
-
-/* =========================================
-   ONGOING FLIGHTS
-========================================= */
-
-function createDefaultFlights(){
-
-return [
-
-{
-flight:"SA482",
-from:"SIN",
-to:"LAX",
-aircraft:"SG-400",
-gate:"B14",
-status:"IN FLIGHT",
-progress:"62%"
-},
-
-{
-flight:"SA731",
-from:"LHR",
-to:"DXB",
-aircraft:"SG-300",
-gate:"A8",
-status:"IN FLIGHT",
-progress:"41%"
-},
-
-{
-flight:"SA219",
-from:"JFK",
-to:"NRT",
-aircraft:"SG-400",
-gate:"C21",
-status:"IN FLIGHT",
-progress:"78%"
-},
-
-{
-flight:"SA555",
-from:"CDG",
-to:"SYD",
-aircraft:"SG-400",
-gate:"D4",
-status:"IN FLIGHT",
-progress:"29%"
-}
-
-];
-
-}
-
-
-if(flights.length===0){
-
-flights=
-createDefaultFlights();
-
-saveData();
-
-}
-
+/* =========================
+   FLIGHT BOARD
+========================= */
 
 function renderFlights(){
 
-const publicBox =
-document.getElementById("publicFlights");
+  const board=document.getElementById("flightBoard");
 
+  board.innerHTML="";
 
-publicBox.innerHTML="";
+  flights.forEach(f=>{
 
+    const statusClass=
+      f.status==="ON TIME"
+      ?"on-time":
+      f.status==="BOARDING"
+      ?"boarding":
+      "delayed";
 
-flights.forEach(f=>{
+    board.innerHTML+=`
 
-const card =
-document.createElement("div");
+      <div class="flight-row">
 
-card.className="card";
+        <div>
+          <b>${f.number}</b>
+          <br>
+          ${f.from} → ${f.to}
+        </div>
 
+        <div>
+          ${f.time} → ${f.arrival}
+        </div>
 
-card.innerHTML=`
+        <div>
+          ${f.aircraft}
+          <br>
+          Gate ${f.gate}
+        </div>
 
-<h2>
-✈️ ${escapeHTML(f.flight)}
-</h2>
+        <div>
+          <span class="status ${statusClass}">
+            ${f.status}
+          </span>
+        </div>
 
-<h3 style="margin-top:8px;">
-${escapeHTML(f.from)}
- →
-${escapeHTML(f.to)}
-</h3>
+      </div>
 
-<p style="margin-top:10px;">
-Aircraft:
-${escapeHTML(f.aircraft)}
-</p>
-
-<p>
-Gate:
-${escapeHTML(f.gate)}
-</p>
-
-<p>
-Status:
-<strong>
-${escapeHTML(f.status)}
-</strong>
-</p>
-
-<p style="margin-top:10px;">
-Flight progress:
-${escapeHTML(f.progress)}
-</p>
-
-`;
-
-publicBox.appendChild(card);
-
-});
-
+    `;
+  });
 }
 
+/* =========================
+   MEMBERSHIP
+========================= */
 
-function renderAdminFlights(){
+function joinMembership(){
 
-const box =
-document.getElementById("adminFlightsList");
+  let member=
+    JSON.parse(localStorage.getItem("singadooreMember")||"null");
 
-box.innerHTML="";
+  if(!member){
 
+    member={
+      number:
+        "SM"+Math.floor(10000000+Math.random()*89999999),
+      miles:0
+    };
 
-flights.forEach(f=>{
+    localStorage.setItem(
+      "singadooreMember",
+      JSON.stringify(member)
+    );
 
-const div =
-document.createElement("div");
+    alert(
+      "Welcome to Singadoore Rewards! Your member number is "+
+      member.number
+    );
 
-div.className="flight-card";
+  }else{
 
+    alert(
+      "You already have a Singadoore Rewards membership."
+    );
 
-div.innerHTML=`
+  }
 
-<strong>
-${escapeHTML(f.flight)}
-</strong>
-
-<p style="margin-top:8px;">
-${escapeHTML(f.from)}
- →
-${escapeHTML(f.to)}
-</p>
-
-<p>
-Aircraft:
-${escapeHTML(f.aircraft)}
-</p>
-
-<p>
-Gate:
-${escapeHTML(f.gate)}
-</p>
-
-<p>
-Status:
-<span class="badge">
-${escapeHTML(f.status)}
-</span>
-</p>
-
-`;
-
-box.appendChild(div);
-
-});
-
+  updateMember();
 }
 
+function updateMember(){
 
-function addDemoFlight(){
+  const member=
+    JSON.parse(localStorage.getItem("singadooreMember")||"null");
 
-const newFlight={
+  if(!member) return;
 
-flight:makeFlightNumber(),
+  document.getElementById("mileDisplay").textContent=
+    member.miles.toLocaleString();
 
-from:
-["LAX","JFK","LHR","SIN","DXB","CDG","NRT"][
-randomNumber(0,6)
-],
-
-to:
-["LAX","JFK","LHR","SIN","DXB","CDG","NRT"][
-randomNumber(0,6)
-],
-
-aircraft:makeAircraft(),
-
-gate:makeGate(),
-
-status:"IN FLIGHT",
-
-progress:
-randomNumber(10,90)+"%"
-
-};
-
-
-if(newFlight.from===newFlight.to){
-
-newFlight.to="SYD";
-
+  document.getElementById("memberGreeting").textContent=
+    "⭐ Member "+member.number;
 }
 
+function addMiles(price){
 
-flights.push(newFlight);
+  let member=
+    JSON.parse(localStorage.getItem("singadooreMember")||"null");
 
-saveData();
+  if(!member) return;
 
-renderFlights();
+  member.miles+=Math.floor(price/2);
 
-renderAdmin();
+  localStorage.setItem(
+    "singadooreMember",
+    JSON.stringify(member)
+  );
 
+  updateMember();
 }
 
+/* =========================
+   JOB APPLICATION
+========================= */
 
-/* =========================================
+function openJob(){
+
+  document.getElementById("modalContent").innerHTML=`
+
+    <h2>💼 Singadoore Crew Application</h2>
+
+    <p>Apply for a fictional roleplay position.</p>
+
+    <input id="jobName" placeholder="Your roleplay name">
+
+    <select id="jobRole">
+      <option>Flight Attendant</option>
+      <option>Pilot</option>
+      <option>Gate Agent</option>
+      <option>Dispatcher</option>
+      <option>Customer Service</option>
+      <option>Airport Manager</option>
+    </select>
+
+    <textarea id="jobWhy"
+      placeholder="Why should Singadoore hire you?"></textarea>
+
+    <button class="search-btn" onclick="submitJob()">
+      SUBMIT APPLICATION
+    </button>
+
+  `;
+
+  openModal();
+}
+
+function submitJob(){
+
+  const name=
+    document.getElementById("jobName").value.trim();
+
+  const role=
+    document.getElementById("jobRole").value;
+
+  const why=
+    document.getElementById("jobWhy").value.trim();
+
+  if(!name){
+
+    alert("Enter a roleplay name.");
+    return;
+  }
+
+  let jobs=
+    JSON.parse(localStorage.getItem("singadooreJobs")||"[]");
+
+  jobs.push({
+    name,
+    role,
+    why,
+    date:new Date().toLocaleString(),
+    status:"NEW"
+  });
+
+  localStorage.setItem(
+    "singadooreJobs",
+    JSON.stringify(jobs)
+  );
+
+  alert("Application submitted!");
+
+  closeModal();
+}
+
+/* =========================
+   AI ASSISTANT
+========================= */
+
+function toggleChat(){
+
+  const box=document.getElementById("chatbox");
+
+  box.style.display=
+    box.style.display==="block"
+    ?"none"
+    :"block";
+}
+
+function chatKey(e){
+
+  if(e.key==="Enter"){
+    sendChat();
+  }
+}
+
+function sendChat(){
+
+  const input=document.getElementById("chatInput");
+
+  const text=input.value.trim();
+
+  if(!text) return;
+
+  addChat(text,"user");
+
+  input.value="";
+
+  let answer=
+    "I'm not sure about that yet 😭 Try asking about booking flights offers tickets baggage membership or flight status.";
+
+  const q=text.toLowerCase();
+
+  if(q.includes("book")||q.includes("flight")){
+
+    answer=
+      "You can book from the Book section! Pick your airports dates cabin and passenger counts. Babies and elders are free in our roleplay.";
+
+  }else if(q.includes("ticket")){
+
+    answer=
+      "Your ticket gets a ticket number booking code fictional passenger ID seat gate aircraft and QR-style code.";
+
+  }else if(q.includes("bag")||q.includes("luggage")){
+
+    answer=
+      "Economy gets 1 carry-on and 1 personal item. Business gets 2 carry-ons and 2 checked bags. First gets extra fictional baggage.";
+
+  }else if(q.includes("member")||q.includes("miles")){
+
+    answer=
+      "Singadoore Rewards is free! You can earn fictional Singadoore Miles from bookings.";
+
+  }else if(q.includes("offer")||q.includes("deal")){
+
+    answer=
+      "Check the Offers section for Family Flight Week Yellow Friday Weekend Getaway Member Deals and more.";
+
+  }else if(q.includes("baby")){
+
+    answer=
+      "Babies fly FREE in Singadoore roleplay.";
+
+  }else if(q.includes("elder")){
+
+    answer=
+      "Elders fly FREE in Singadoore roleplay.";
+
+  }else if(q.includes("status")){
+
+    answer=
+      "Check Flight Status to see the fictional live-style flight board.";
+
+  }else if(q.includes("admin")){
+
+    answer=
+      "The admin panel is for the roleplay owner. The demo PIN is 1234.";
+
+  }
+
+  setTimeout(()=>{
+    addChat(answer,"bot");
+  },250);
+}
+
+function addChat(text,type){
+
+  const messages=
+    document.getElementById("chatMessages");
+
+  const div=document.createElement("div");
+
+  div.className="msg "+type;
+
+  div.textContent=text;
+
+  messages.appendChild(div);
+
+  messages.scrollTop=messages.scrollHeight;
+}
+
+/* =========================
    ADMIN
-========================================= */
+========================= */
 
 function openAdmin(){
 
-const password =
-document.getElementById("adminPassword")
-.value;
+  const pin=prompt(
+    "Enter Singadoore demo admin PIN:"
+  );
 
+  if(pin!=="1234"){
 
-if(password!=="1234"){
+    alert("Wrong PIN.");
+    return;
+  }
 
-alert("Incorrect admin PIN.");
-
-return;
-
+  renderAdmin();
 }
-
-
-document.getElementById("admin")
-.style.display="block";
-
-
-document.getElementById("adminLogin")
-.style.display="none";
-
-
-document.getElementById("admin")
-.scrollIntoView();
-
-
-renderAdmin();
-
-}
-
-
-function closeAdmin(){
-
-document.getElementById("admin")
-.style.display="none";
-
-document.getElementById("adminLogin")
-.style.display="block";
-
-}
-
 
 function renderAdmin(){
 
-document.getElementById("adminBookings")
-.textContent=
-bookings.length;
+  const bookings=
+    JSON.parse(localStorage.getItem("singadooreBookings")||"[]");
 
+  const jobs=
+    JSON.parse(localStorage.getItem("singadooreJobs")||"[]");
 
-document.getElementById("adminPassengers")
-.textContent=
-bookings.reduce(
-(total,b)=>total+b.totalPeople,
-0
-);
+  document.getElementById("modalContent").innerHTML=`
 
+    <div class="admin">
 
-document.getElementById("adminFlights")
-.textContent=
-flights.length;
+      <h1>🛠️ Admin Dashboard</h1>
 
+      <p>
+        DEMO ROLEPLAY ADMIN PANEL — NOT SECURE
+      </p>
 
-document.getElementById("adminApplicants")
-.textContent=
-applicants.length;
+      <div class="admin-grid">
 
+        <div class="stat">
+          <b>${bookings.length}</b>
+          Bookings
+        </div>
 
-renderAdminFlights();
+        <div class="stat">
+          <b>${jobs.length}</b>
+          Job Applications
+        </div>
 
-renderApplicants();
+        <div class="stat">
+          <b>${flights.length}</b>
+          Ongoing Flights
+        </div>
 
-renderBookings();
+        <div class="stat">
+          <b>${bookings.reduce((x,b)=>x+b.price,0)}</b>
+          Credits
+        </div>
 
+      </div>
+
+      <h2>🛫 Ongoing Flights</h2>
+
+      ${flights.map(f=>`
+
+        <div class="stat" style="margin-bottom:10px">
+
+          <b style="font-size:20px">
+            ${f.number}
+          </b>
+
+          ${f.from} → ${f.to}
+
+          <br>
+
+          Gate ${f.gate}
+          • ${f.status}
+
+        </div>
+
+      `).join("")}
+
+      <h2>👥 Job Applicants</h2>
+
+      ${jobs.length===0
+        ?"<p>No applications yet.</p>"
+        :jobs.map(j=>`
+
+          <div class="stat" style="margin-bottom:10px">
+
+            <b style="font-size:18px">
+              ${j.name}
+            </b>
+
+            Role: ${j.role}
+
+            <br>
+
+            ${j.why||"No reason provided"}
+
+            <br>
+
+            Status: ${j.status}
+
+          </div>
+
+        `).join("")
+      }
+
+      <h2>🎫 Bookings</h2>
+
+      ${bookings.length===0
+        ?"<p>No bookings yet.</p>"
+        :`
+
+        <table class="admin-table">
+
+          <tr>
+            <th>Ticket</th>
+            <th>Route</th>
+            <th>Price</th>
+            <th>Seat</th>
+          </tr>
+
+          ${bookings.map(b=>`
+
+            <tr>
+              <td>${b.ticket}</td>
+              <td>${b.from} → ${b.to}</td>
+              <td>${b.price}</td>
+              <td>${b.seat}</td>
+            </tr>
+
+          `).join("")}
+
+        </table>
+
+      `}
+
+      <h2>⚙️ Admin Tools</h2>
+
+      <button onclick="addAdminFlight()">
+        Add Flight
+      </button>
+
+      <button onclick="openScanner()">
+        Ticket Scanner
+      </button>
+
+      <button onclick="clearBookings()">
+        Clear Bookings
+      </button>
+
+      <button onclick="clearJobs()">
+        Clear Applications
+      </button>
+
+    </div>
+
+  `;
+
+  openModal();
 }
 
+function addAdminFlight(){
 
-function renderBookings(){
+  const number=prompt("Flight number:");
 
-const table =
-document.getElementById("bookingTable");
+  if(!number) return;
 
-table.innerHTML="";
+  const from=prompt("From airport:");
 
+  const to=prompt("To airport:");
 
-bookings.forEach(b=>{
+  flights.push({
 
-const row =
-document.createElement("tr");
+    number,
+    from,
+    to,
+    time:"12:00",
+    arrival:"15:00",
+    aircraft:"SG A320",
+    gate:"A01",
+    status:"ON TIME"
 
+  });
 
-row.innerHTML=`
+  renderFlights();
 
-<td>
-${escapeHTML(b.ticketNumber)}
-</td>
-
-<td>
-${escapeHTML(b.name)}
-</td>
-
-<td>
-${escapeHTML(b.departure)}
- →
-${escapeHTML(b.arrival)}
-</td>
-
-<td>
-${b.totalPeople}
-</td>
-
-<td>
-${escapeHTML(b.cabin)}
-</td>
-
-<td>
-${escapeHTML(b.gate)}
-</td>
-
-`;
-
-
-table.appendChild(row);
-
-});
-
+  alert("Flight added.");
 }
-
-
-/* =========================================
-   APPLICANTS
-========================================= */
-
-function addApplicant(){
-
-const name =
-document.getElementById("applicantName")
-.value.trim();
-
-
-const role =
-document.getElementById("applicantRole")
-.value;
-
-
-if(!name){
-
-alert("Enter an applicant name.");
-
-return;
-
-}
-
-
-applicants.push({
-
-name:name,
-
-role:role,
-
-status:"PENDING",
-
-id:"APP-"+randomNumber(1000,9999),
-
-date:new Date().toLocaleDateString()
-
-});
-
-
-saveData();
-
-document.getElementById("applicantName")
-.value="";
-
-
-renderAdmin();
-
-}
-
-
-function renderApplicants(){
-
-const box =
-document.getElementById("applicantList");
-
-box.innerHTML="";
-
-
-if(applicants.length===0){
-
-box.innerHTML=
-"<p>No job applicants yet.</p>";
-
-return;
-
-}
-
-
-applicants.forEach((a,index)=>{
-
-const div =
-document.createElement("div");
-
-div.className="flight-card";
-
-
-div.innerHTML=`
-
-<strong>
-${escapeHTML(a.name)}
-</strong>
-
-<p style="margin-top:8px;">
-Role:
-${escapeHTML(a.role)}
-</p>
-
-<p>
-Applicant ID:
-${escapeHTML(a.id)}
-</p>
-
-<p>
-Applied:
-${escapeHTML(a.date)}
-</p>
-
-<p>
-Status:
-<span class="badge">
-${escapeHTML(a.status)}
-</span>
-</p>
-
-<button
-class="btn"
-onclick="hireApplicant(${index})"
->
-HIRE
-</button>
-
-<button
-class="btn"
-onclick="removeApplicant(${index})"
->
-REMOVE
-</button>
-
-`;
-
-box.appendChild(div);
-
-});
-
-}
-
-
-function hireApplicant(index){
-
-applicants[index].status="HIRED";
-
-saveData();
-
-renderAdmin();
-
-}
-
-
-function removeApplicant(index){
-
-applicants.splice(index,1);
-
-saveData();
-
-renderAdmin();
-
-}
-
-
-/* =========================================
-   ADMIN DATA
-========================================= */
 
 function clearBookings(){
 
-if(!confirm(
-"Clear all fictional bookings?"
-))
-return;
+  if(confirm("Delete all fictional bookings from this browser?")){
 
+    localStorage.removeItem("singadooreBookings");
 
-bookings=[];
-
-saveData();
-
-renderAdmin();
-
+    renderAdmin();
+  }
 }
 
+function clearJobs(){
 
-function clearApplicants(){
+  if(confirm("Delete all fictional job applications?")){
 
-if(!confirm(
-"Clear all fictional applicants?"
-))
-return;
+    localStorage.removeItem("singadooreJobs");
 
-
-applicants=[];
-
-saveData();
-
-renderAdmin();
-
+    renderAdmin();
+  }
 }
 
+/* =========================
+   MODAL
+========================= */
 
-function resetFlights(){
+function openModal(){
 
-flights=
-createDefaultFlights();
+  document.getElementById("modal").style.display="flex";
+}
 
-saveData();
+function closeModal(){
 
-renderAdmin();
+  document.getElementById("modal").style.display="none";
+}
 
+document.getElementById("modal").addEventListener(
+  "click",
+  function(e){
+
+    if(e.target===this){
+      closeModal();
+    }
+
+  }
+);
+
+/* =========================
+   INIT
+========================= */
+
+const today=
+  new Date().toISOString().slice(0,10);
+
+document.getElementById("departDate").value=today;
+
+const tomorrow=new Date();
+
+tomorrow.setDate(tomorrow.getDate()+3);
+
+document.getElementById("returnDate").value=
+  tomorrow.toISOString().slice(0,10);
+
+updatePassengers();
+updateMember();
 renderFlights();
-
-}
-
-
-function saveData(){
-
-localStorage.setItem(
-"singadooreBookings",
-JSON.stringify(bookings)
-);
-
-localStorage.setItem(
-"singadooreApplicants",
-JSON.stringify(applicants)
-);
-
-localStorage.setItem(
-"singadooreFlights",
-JSON.stringify(flights)
-);
-
-}
-
-
-/* =========================================
-   START
-========================================= */
-
-renderFlights();
+generateCalendar();
+loadAirports();
 
 </script>
 
