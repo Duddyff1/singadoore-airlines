@@ -1,0 +1,664 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Singadoore Airlines ✈️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111;
+      color: white;
+    }
+
+    /* ROLEPLAY NOTICE */
+    .roleplay {
+      background: #ffd21c;
+      color: #111;
+      text-align: center;
+      padding: 12px;
+      font-weight: bold;
+      font-size: 15px;
+      letter-spacing: 1px;
+    }
+
+    /* NAVBAR */
+    nav {
+      background: #050505;
+      border-bottom: 2px solid #ffd21c;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      color: #ffd21c;
+    }
+
+    .logo span {
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffd21c;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 20px;
+      background:
+        linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.82)),
+        radial-gradient(circle at center, #4a4000, #111 65%);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 85px);
+      color: #ffd21c;
+      margin-bottom: 10px;
+      font-weight: 900;
+    }
+
+    .hero h2 {
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      color: #ddd;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #ffd21c;
+      color: #111;
+      padding: 14px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .button:hover {
+      background: white;
+    }
+
+    .button.dark {
+      background: #222;
+      color: white;
+      border: 1px solid #ffd21c;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 70px 7%;
+    }
+
+    section h2 {
+      text-align: center;
+      color: #ffd21c;
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      text-align: center;
+      color: #bbb;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    /* FLIGHTS */
+    .flights {
+      background: #181818;
+    }
+
+    .flight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .flight-card {
+      background: #0d0d0d;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 25px;
+      transition: .2s;
+    }
+
+    .flight-card:hover {
+      transform: translateY(-5px);
+      border-color: #ffd21c;
+    }
+
+    .flight-number {
+      color: #ffd21c;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .route {
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .flight-info {
+      color: #aaa;
+      line-height: 1.8;
+    }
+
+    /* DESTINATIONS */
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .destination {
+      background: #1c1c1c;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #333;
+    }
+
+    .destination .emoji {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .destination h3 {
+      color: #ffd21c;
+      margin-bottom: 8px;
+    }
+
+    .destination p {
+      color: #bbb;
+    }
+
+    /* FLEET */
+    .fleet {
+      background: #181818;
+    }
+
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .plane {
+      background: #0d0d0d;
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid #333;
+    }
+
+    .plane-icon {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    .plane h3 {
+      color: #ffd21c;
+      margin-bottom: 10px;
+    }
+
+    .plane p {
+      color: #bbb;
+      line-height: 1.6;
+    }
+
+    /* BOOKING */
+    .booking {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .booking-box {
+      background: #181818;
+      border: 1px solid #333;
+      border-radius: 15px;
+      padding: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #ffd21c;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 20px;
+      border-radius: 7px;
+      border: 1px solid #444;
+      background: #0b0b0b;
+      color: white;
+      font-size: 16px;
+    }
+
+    #result {
+      display: none;
+      margin-top: 25px;
+      background: #ffd21c;
+      color: #111;
+      padding: 20px;
+      border-radius: 10px;
+      line-height: 1.7;
+    }
+
+    /* ABOUT */
+    .about {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .about p {
+      color: #ccc;
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #050505;
+      border-top: 2px solid #ffd21c;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    footer h3 {
+      color: #ffd21c;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      color: #888;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 7px;
+        font-size: 14px;
+      }
+
+      .hero {
+        min-height: 500px;
+      }
+
+      section {
+        padding: 55px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ROLEPLAY NOTICE -->
+  <div class="roleplay">
+    🎮 ROLEPLAY ONLY — Singadoore Airlines is a fictional airline and this website does not sell real tickets.
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">✈ SINGADOORE <span>AIRLINES</span></div>
+
+    <div>
+      <a href="#home">Home</a>
+      <a href="#flights">Flights</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#fleet">Fleet</a>
+      <a href="#book">Book</a>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>SINGADOORE</h1>
+      <h2>Airlines</h2>
+
+      <p>
+        Welcome aboard Singadoore Airlines!
+        Your fictional airline for fun, games and roleplay.
+        Pick a destination, choose a flight and start your journey.
+      </p>
+
+      <a class="button" href="#book">Create Roleplay Flight</a>
+      <a class="button dark" href="#destinations">Explore Destinations</a>
+    </div>
+  </section>
+
+  <!-- FLIGHTS -->
+  <section class="flights" id="flights">
+    <h2>✈️ Fake Flight Schedule</h2>
+
+    <p class="section-intro">
+      These are fictional flights made for roleplay.
+      Times and flight numbers are not real.
+    </p>
+
+    <div class="flight-grid">
+
+      <div class="flight-card">
+        <div class="flight-number">SA 101</div>
+        <div class="route">SGD → NYC</div>
+        <div class="flight-info">
+          🕐 08:30 AM<br>
+          🛩️ SGA-800<br>
+          🪑 Economy / First
+        </div>
+      </div>
+
+      <div class="flight-card">
+        <div class="flight-number">SA 204</div>
+        <div class="route">SGD → TOK</div>
+        <div class="flight-info">
+          🕐 11:45 AM<br>
+          🛩️ SGA-900<br>
+          🪑 Economy / Business
+        </div>
+      </div>
+
+      <div class="flight-card">
+        <div class="flight-number">SA 315</div>
+        <div class="route">SGD → PAR</div>
+        <div class="flight-info">
+          🕐 02:15 PM<br>
+          🛩️ SGA-700<br>
+          🪑 Economy
+        </div>
+      </div>
+
+      <div class="flight-card">
+        <div class="flight-number">SA 420</div>
+        <div class="route">SGD → DXB</div>
+        <div class="flight-info">
+          🕐 06:20 PM<br>
+          🛩️ SGA-900<br>
+          🪑 Economy / Business
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DESTINATIONS -->
+  <section id="destinations">
+    <h2>🌎 Destinations</h2>
+
+    <p class="section-intro">
+      Explore the fictional Singadoore Airlines network.
+    </p>
+
+    <div class="destination-grid">
+
+      <div class="destination">
+        <div class="emoji">🗽</div>
+        <h3>New York</h3>
+        <p>Explore the big city and famous skyline.</p>
+      </div>
+
+      <div class="destination">
+        <div class="emoji">🗼</div>
+        <h3>Tokyo</h3>
+        <p>Visit the bright lights and amazing city.</p>
+      </div>
+
+      <div class="destination">
+        <div class="emoji">🗼</div>
+        <h3>Paris</h3>
+        <p>See the sights and enjoy a French adventure.</p>
+      </div>
+
+      <div class="destination">
+        <div class="emoji">🏙️</div>
+        <h3>Dubai</h3>
+        <p>Experience huge buildings and sunny skies.</p>
+      </div>
+
+      <div class="destination">
+        <div class="emoji">🌴</div>
+        <h3>Singadoore</h3>
+        <p>The fictional home base of Singadoore Airlines.</p>
+      </div>
+
+      <div class="destination">
+        <div class="emoji">🏔️</div>
+        <h3>Frostpeak</h3>
+        <p>A fictional mountain destination for roleplay.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FLEET -->
+  <section class="fleet" id="fleet">
+    <h2>🛩️ Our Fleet</h2>
+
+    <p class="section-intro">
+      Meet the fictional aircraft used in our roleplay world.
+    </p>
+
+    <div class="fleet-grid">
+
+      <div class="plane">
+        <div class="plane-icon">✈️</div>
+        <h3>SGA-700</h3>
+        <p>
+          A smaller aircraft designed for shorter roleplay flights.
+          Capacity: 120 pretend passengers.
+        </p>
+      </div>
+
+      <div class="plane">
+        <div class="plane-icon">🛫</div>
+        <h3>SGA-800</h3>
+        <p>
+          A popular aircraft used for medium-distance adventures.
+          Capacity: 180 pretend passengers.
+        </p>
+      </div>
+
+      <div class="plane">
+        <div class="plane-icon">🛬</div>
+        <h3>SGA-900</h3>
+        <p>
+          Our biggest fictional aircraft for long-distance roleplay.
+          Capacity: 300 pretend passengers.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="book">
+    <h2>🎫 Create a Roleplay Flight</h2>
+
+    <p class="section-intro">
+      This creates a pretend flight card. No real booking or payment happens.
+    </p>
+
+    <div class="booking">
+      <div class="booking-box">
+
+        <label for="name">Pilot or Passenger Name</label>
+        <input type="text" id="name" placeholder="Enter a roleplay name">
+
+        <label for="from">From</label>
+        <select id="from">
+          <option>Singadoore</option>
+          <option>New York</option>
+          <option>Tokyo</option>
+          <option>Paris</option>
+          <option>Dubai</option>
+        </select>
+
+        <label for="to">To</label>
+        <select id="to">
+          <option>New York</option>
+          <option>Tokyo</option>
+          <option>Paris</option>
+          <option>Dubai</option>
+          <option>Frostpeak</option>
+        </select>
+
+        <label for="class">Cabin</label>
+        <select id="class">
+          <option>Economy</option>
+          <option>Business</option>
+          <option>First Class</option>
+        </select>
+
+        <button class="button" onclick="createFlight()">
+          ✈️ Create Flight
+        </button>
+
+        <div id="result"></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <div class="about">
+      <h2>About Singadoore</h2>
+
+      <p>
+        Singadoore Airlines is a fictional airline created for roleplay,
+        games and fun. Everything on this website is pretend.
+        There are no real flights, tickets, payments or reservations.
+        Grab your imaginary boarding pass and enjoy the adventure! ✈️
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <h3>✈ SINGADOORE AIRLINES</h3>
+
+    <p>
+      Fictional airline • Roleplay only • No real bookings
+      <br>
+      © 2026 Singadoore Airlines Roleplay
+    </p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function createFlight() {
+
+      const name = document.getElementById("name").value.trim();
+      const from = document.getElementById("from").value;
+      const to = document.getElementById("to").value;
+      const cabin = document.getElementById("class").value;
+      const result = document.getElementById("result");
+
+      if (name === "") {
+        result.style.display = "block";
+        result.innerHTML =
+          "⚠️ Please enter a roleplay name first!";
+        return;
+      }
+
+      if (from === to) {
+        result.style.display = "block";
+        result.innerHTML =
+          "⚠️ Pick two different cities for your roleplay flight!";
+        return;
+      }
+
+      const flightNumber =
+        "SA " + Math.floor(100 + Math.random() * 899);
+
+      const seat =
+        Math.floor(1 + Math.random() * 40) +
+        String.fromCharCode(65 + Math.floor(Math.random() * 6));
+
+      result.style.display = "block";
+
+      result.innerHTML = `
+        <strong>🎫 ROLEPLAY BOARDING PASS</strong><br><br>
+
+        👤 Passenger: ${name}<br>
+        ✈️ Flight: ${flightNumber}<br>
+        🛫 From: ${from}<br>
+        🛬 To: ${to}<br>
+        🪑 Cabin: ${cabin}<br>
+        💺 Seat: ${seat}<br><br>
+
+        <strong>Have a great fictional flight! ✈️</strong>
+        <br><br>
+
+        <small>
+          This is a pretend boarding pass for roleplay only.
+          It is not a real airline ticket.
+        </small>
+      `;
+    }
+  </script>
+
+</body>
+</html>
+```
